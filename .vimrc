@@ -94,5 +94,13 @@ set shiftwidth=2
 set softtabstop=2
 
 set cursorline
+set wildmenu            " vim's menu for files etc.
+set showmatch           " show matchin braces of all types
+
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 
 let g:airline_theme='base16'
