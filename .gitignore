@@ -58,5 +58,6 @@ projects
 .irb-history
 .lesshst
 .directory
+.viminfo
 .Xauthority
 .zcompdump
