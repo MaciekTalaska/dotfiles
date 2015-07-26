@@ -1,0 +1,73 @@
+[user]
+	name = MaciekTalaska
+	email = maciek.talaska@gmail.com
+	
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "branch"]
+	current = red reverse
+	local = blue
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[alias]
+	# reference: http://durdn.com/blog/2012/11/22/must-have-git-aliases-advanced-examples/
+	# some aliases, and color definitions taken directly from: https://github.com/durdn/cfg/blob/master/.gitconfig
+	a = add
+	b = branch
+	d = diff
+	dw = diff --word-diff=plain
+	# diff last commit
+	dlc = diff --cached HEAD^	
+	ci = commit
+	cl = clone
+	co = checkout
+	st = status
+	# s = stash
+	sl = stash list
+	sa = stash apply
+	ss = stash save	
+	l = log
+	lg = log --graph
+	le = log --oneline --decorate
+	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+	lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+	ltree = log --graph --oneline --decorate --all
+	l1 = log --oneline
+	lp = log -p
+	lpg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(cyan)<%an>%Creset' --abbrev-commit --date=relative
+	lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short
+	lde = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative
+	le = log --oneline --decorate
+	lnice = log --graph --decorate --pretty=oneline --abbrev-commit
+	lf = log -u
+
+	r = reset
+	r = reset
+	r1 = reset HEAD^
+	r2 = reset HEAD^^
+	rh = reset --hard
+	rh1 = reset HEAD^ --hard
+	rh2 = reset HEAD^^ --hard
+	ps = push
+	pl = pull
+	
+	me = config user.name
+[core]
+	editor = vim
+	autocrlf = input 
+
