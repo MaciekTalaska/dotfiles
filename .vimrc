@@ -1,5 +1,7 @@
 set nocompatible              " be iMproved, required
-filetype off                  " required
+filetype off                  " required for Vundle
+
+" --==[ start of Vundle section ]==-- 
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -34,11 +36,6 @@ Plugin 'Raimondi/delimitMate'
 imap <C-c> <CR><Esc>O
 
 Plugin 'Valloric/YouCompleteMe'
-
-" These are the tweaks I apply to YCM's config, you don't need them but they
-" might help.
-" " YCM gives you popups and splits by default that some people might not
-" like, so these should tidy it up a bit for you.
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
@@ -50,7 +47,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_detect_whitespace=0
 set laststatus=2
-"Plugin 'powerline/powerline'
 
 Plugin 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
@@ -63,7 +59,6 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/syntastic'
 Plugin 'justinmk/vim-sneak'
 call vundle#end()            " required
-
 
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
@@ -78,14 +73,14 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-
+" --==[ end of Vundle section ]==--
 
 filetype on
 set relativenumber
 set number
 set numberwidth=3
 syntax on 
-"set t_Co=256
+set t_Co=256
 set background=light
 colorscheme solarized
 
