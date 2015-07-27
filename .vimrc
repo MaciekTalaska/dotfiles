@@ -3,6 +3,7 @@ filetype off                  " required for Vundle
 
 " --==[ start of vim-plug section ]==-- 
 
+" taken from: https://jordaneldredge.com/blog/why-i-switched-from-vundle-to-plug/ 
 " Load vim-plug
 if empty(glob("~/.vim/autoload/plug.vim"))
   " mkdir('~/.vim/autoload', 'p')
@@ -45,6 +46,11 @@ Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
 Plug 'justinmk/vim-sneak'
+
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+
+Plug 'SirVer/ultisnips'
+Plug 'scrooloose/nerdtree'
 call plug#end()
 
 " --==[ end of vim-plug section ]==--
