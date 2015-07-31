@@ -43,6 +43,9 @@ Plug 'scrooloose/syntastic'
 Plug 'justinmk/vim-sneak'
 Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
 
