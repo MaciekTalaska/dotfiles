@@ -87,4 +87,20 @@ set hlsearch            " highlight matches
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
+set pastetoggle=<F2>
 
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set nornu
+  else
+    set relativenumber
+  endif
+endfunc
+
+nnoremap <C-g> :call NumberToggle()<cr>
+
+:au Bufleave * :set nornu 
+:au BufEnter * :set relativenumber
+
+autocmd InsertEnter * :set nornu 
+autocmd InsertLeave * :set relativenumber
