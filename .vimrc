@@ -52,6 +52,7 @@ Plug 'wincent/Command-T'
 Plug 'mileszs/ack.vim'
 :set hidden  " required by lusty
 Plug 'sjbach/lusty'
+Plug 'easymotion/vim-easymotion'
 
 " Go 
 Plug 'Blackrush/vim-gocode'
