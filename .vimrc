@@ -48,6 +48,10 @@ map <C-n> :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
+Plug 'wincent/Command-T'
+Plug 'mileszs/ack.vim'
+:set hidden  " required by lusty
+Plug 'sjbach/lusty'
 
 " Go 
 Plug 'Blackrush/vim-gocode'
