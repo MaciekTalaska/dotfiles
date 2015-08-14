@@ -22,7 +22,8 @@ Plug 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
-	
+" Plug 'Shougo/neocomplete.vim'
+
 Plug 'marijnh/tern_for_vim'
 Plug 'bling/vim-airline'
 let g:bufferline_echo = 0
