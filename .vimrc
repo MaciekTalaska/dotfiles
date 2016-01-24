@@ -110,3 +110,5 @@ nnoremap <C-g> :call NumberToggle()<cr>
 
 autocmd InsertEnter * :set nornu 
 autocmd InsertLeave * :set relativenumber
+
+nmap ,d :b#<bar>bd#<CR> " use ,d to delete buffer while in splitmode, and switch to last used buffer
