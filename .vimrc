@@ -63,6 +63,8 @@ Plug 'jelera/vim-javascript-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
+Plug 'Quramy/tsuquyomi'
+Plug 'leafgarland/typescript-vim'
 
 " Rust 
 " Plug 'phildawes/racer' 
