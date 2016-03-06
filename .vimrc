@@ -18,6 +18,10 @@ Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 imap <C-c> <CR><Esc>O
 
+Plug 'L9'
+Plug 'FuzzyFinder' "relies on L9 to be installed
+Plug 'PreciseJump'
+
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
