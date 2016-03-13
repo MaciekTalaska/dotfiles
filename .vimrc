@@ -59,6 +59,10 @@ Plug 'mileszs/ack.vim'
 :set hidden  " required by lusty
 Plug 'sjbach/lusty'
 Plug 'easymotion/vim-easymotion'
+Plug 'kien/rainbow_parentheses.vim'
+
+" Markdown
+Plug 'suan/vim-instant-markdown'
 
 " Go 
 Plug 'Blackrush/vim-gocode'
