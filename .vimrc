@@ -12,7 +12,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'git://git.wincent.com/command-t.git'
+Plug 'wincent/command-t'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
@@ -55,7 +55,6 @@ map <C-n> :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'SirVer/ultisnips'
-Plug 'wincent/Command-T'
 Plug 'mileszs/ack.vim'
 :set hidden  " required by lusty
 Plug 'sjbach/lusty'
