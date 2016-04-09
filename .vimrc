@@ -30,7 +30,8 @@ set completeopt-=preview
 Plug 'Shougo/vimproc.vim'
 
 Plug 'marijnh/tern_for_vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -74,6 +75,11 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+
+" HTML
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-ragtag'
+Plug 'gorodinskiy/vim-coloresque'
 
 " Rust 
 " Plug 'phildawes/racer' 
