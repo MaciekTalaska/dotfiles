@@ -41,6 +41,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline_theme='base16'
 set laststatus=2
+Plug 'edkolev/tmuxline.vim'
 
 Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
