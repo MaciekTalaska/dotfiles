@@ -1,3 +1,5 @@
+" the line below makes using fish shell less pain
+set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required for Vundle
 
