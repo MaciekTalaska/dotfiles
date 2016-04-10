@@ -22,7 +22,6 @@ imap <C-c> <CR><Esc>O
 
 " better integration of vim with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
-set -g focus-events on
 
 Plug 'L9'
 Plug 'FuzzyFinder' "relies on L9 to be installed
