@@ -60,7 +60,8 @@ let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
-Plug 'SirVer/ultisnips'
+Plug 'https://git::@github.com/SirVer/ultisnips.git'
+Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
 :set hidden  " required by lusty
 Plug 'sjbach/lusty'
