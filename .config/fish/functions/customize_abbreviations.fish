@@ -16,6 +16,7 @@ function customize_abbreviations
     abbr -a gdc git diff --cached
     # others 
     abbr -a enw emacs -nw
+    abbr -a e emacs -nw
     set -U MaciekTalaskaFishConfig
   end
 end
