@@ -2,6 +2,7 @@ function customize_abbreviations
   # inspired by: https://github.com/fish-shell/fish-shell/issues/731#issuecomment-244457493
   if not set -q MaciekTalaskaFishConfig 
     # git
+    abbr -a g git
     abbr -a ga git add
     abbr -a gp git push
     abbr -a gc git commit
