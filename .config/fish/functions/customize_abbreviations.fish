@@ -18,6 +18,7 @@ function customize_abbreviations
     # others 
     abbr -a enw emacs -nw
     abbr -a e emacs -nw
+    abbr -a ec emacsclient -t
     set -U MaciekTalaskaFishConfig
   end
 end
