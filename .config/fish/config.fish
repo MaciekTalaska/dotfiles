@@ -5,8 +5,10 @@ function fish_prompt
     ~/configuration/powerline-shell/powerline-shell.py $status --shell bare ^/dev/null --colorize-hostname --cwd-mode plain
 end
 
-source ~/.asdf/asdf.fish
 source $HOME/.config/fish/functions/mtal.fish
+customize_abbreviations
+
+source ~/.asdf/asdf.fish
 
 set -Ux EDITOR vim
 set -Ux VISUAL vim
