@@ -5,7 +5,7 @@ function fish_prompt
     ~/configuration/powerline-shell/powerline-shell.py $status --shell bare ^/dev/null --colorize-hostname --cwd-mode plain
 end
 
-source $HOME/.config/fish/functions/mtal.fish
+source $HOME/.config/fish/functions/mt_tools.fish
 mt_customize_abbreviations
 
 source ~/.asdf/asdf.fish
