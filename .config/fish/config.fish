@@ -7,8 +7,8 @@ end
 
 source ~/.asdf/asdf.fish
 
-#set -Ux EDITOR vim
-#set -Ux VISUAL vim
+set -Ux EDITOR vim
+set -Ux VISUAL vim
 
 #set -gx GOROOT_BOOTSTRAP "/home/emgieha/.gvm/gos/go1.7.4"
 #set -gx GOPATH ~/projects/go-projects
