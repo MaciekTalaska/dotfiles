@@ -9,6 +9,7 @@ function customize_abbreviations
     abbr -a gs git status
     abbr -a gl git ls
     abbr -a gd git diff
+    abbr -a gdv git difftool --tool=vimdiff
     abbr -a gau git add -u
     abbr -a gcm git commit -m
     abbr -a gca git commit -a -m
