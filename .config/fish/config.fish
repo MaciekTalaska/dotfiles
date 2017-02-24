@@ -6,6 +6,7 @@ function fish_prompt
 end
 
 source ~/.asdf/asdf.fish
+source $HOME/.config/fish/functions/mtal.fish
 
 set -Ux EDITOR vim
 set -Ux VISUAL vim
