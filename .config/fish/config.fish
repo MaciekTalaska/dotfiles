@@ -6,7 +6,7 @@ function fish_prompt
 end
 
 source $HOME/.config/fish/functions/mtal.fish
-customize_abbreviations
+mt_customize_abbreviations
 
 source ~/.asdf/asdf.fish
 
