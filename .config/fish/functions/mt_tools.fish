@@ -43,7 +43,7 @@ function mt_configs_backup -d "copy current (used configuraton) into ~/projects/
   popd
 end
 
-function mt_configs_apply_all -d "copy all configs from ~/projects/dotfiles into ~"
+function mt_configs_apply_all -d "copy all configs from ~/projects/dotfiles -> home"
   pushd .
   cd ~
   rsync -avR ~/projects/dotfiles ~/
@@ -51,11 +51,22 @@ function mt_configs_apply_all -d "copy all configs from ~/projects/dotfiles into
   popd
 end
 
-function mt_configs_apply_fish -d "copy only fish configuration from ~/project/dotfiles into ~"
+function __mt_erase_fish_config_directory
+  cp ~/.config/fish ~/.config/fish-baq -r
+  rm ~/.config/fish -rf
+end
+
+function __mt_restore_fish_history
+  cp ~/.config/fish-baq/fish_history ~/.config/fish
+  cp ~/.config/fish-baq/fish_read_history ~/.config/fish
+end
+
+function mt_configs_apply_fish -d "copy only fish configs from ~/project/dotfiles -> home"
   pushd .
   cd ~
+  __mt_erase_fish_config_directory
   rsync -av ~/projects/dotfiles/.config/fish ~/.config
-  __mt_remove_fishd
+  __mt_restore_fish_history   
   popd
 end
 
