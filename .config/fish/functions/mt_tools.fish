@@ -12,6 +12,7 @@ function mt_customize_abbreviations -d "sets custom abbreviations; uses guard"
     abbr -a gl git ls
     abbr -a gd git diff
     abbr -a gdv git difftool --tool=vimdiff
+    abbr -a gdcv git difftool --cached --tool=vimdiff
     abbr -a gau git add -u
     abbr -a gcm git commit -m
     abbr -a gca git commit -a -m
