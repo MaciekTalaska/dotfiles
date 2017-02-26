@@ -1,5 +1,5 @@
 set -g fish_prompt_pwd_dir_length 0 
-set -x GIT_RADAR_FORMAT ' %{branch} %{local} %{changes} '
+set -xU GIT_RADAR_FORMAT ' %{branch} %{local} %{changes} '
 
 function __mt_fish_prompt_bluepwd_gitradar_greenwhitelambda
     #set_color $fish_color_cwd
