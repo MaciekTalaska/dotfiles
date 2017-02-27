@@ -29,39 +29,7 @@ set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color
 set -g __mt_prompt_char_right_arrow \ue0b0
 set -g __mt_prompt_char_lambda \u03bb
 
-#function __mt_fish_prompt_bluepwd_gitradar_greenwhitelambda
-#    #set_color $fish_color_cwd
-#    set_color white -b blue
-#    echo -n (prompt_pwd)' '
-#    set_color blue -b normal 
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color normal 
-#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-#    set_color brwhite -b green 
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color -o white -b green 
-#    echo -n ' '$__mt_prompt_char_lambda' '
-#    set_color green -b normal
-#    echo -n $__mt_prompt_char_right_arrow' '
-#    set_color normal
-#end
 
-#function __mt_fish_prompt_bluepwd_gitradar_blackgreenlambda 
-#    #set_color $fish_color_cwd
-#    set_color white -b blue
-#    echo -n (prompt_pwd)' '
-#    set_color blue -b normal 
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color normal 
-#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-#    set_color brwhite -b brblack
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color green -b brblack 
-#    echo -n ' '$__mt_prompt_char_lambda' '
-#    set_color brblack -b normal
-#    echo -n $__mt_prompt_char_right_arrow' '
-#    set_color normal
-#end
 
 #function __mt_fish_prompt_blue_thinarrowending
 #    #set_color $fish_color_cwd
@@ -77,23 +45,6 @@ set -g __mt_prompt_char_lambda \u03bb
 #    echo -n ' '$__mt_prompt_char_lambda' '
 #    set_color blue -b normal
 #    echo -n \u276f' '
-#    set_color normal
-#end
-
-#function __mt_fish_prompt_fatblue
-#    #set_color $fish_color_cwd
-#    set_color -o white -b blue
-#    echo -n (prompt_pwd)' '
-#    set_color blue -b normal 
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color normal 
-#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-#    set_color brwhite -b blue
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color -o white -b blue 
-#    echo -n ' '$__mt_prompt_char_lambda' '
-#    set_color blue -b normal
-#    echo -n $__mt_prompt_char_right_arrow' '
 #    set_color normal
 #end
 
