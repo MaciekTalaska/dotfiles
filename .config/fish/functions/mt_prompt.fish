@@ -63,10 +63,8 @@ end
 function __mt_fish_prompt_generic_fatending
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
     echo -n (prompt_pwd)' '
-#set_color $__mt_prompt_pwd_bg -b normal 
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
-#set_color normal 
     echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)' '
     set_color $__mt_git_bg -b $__mt_prompt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
@@ -92,10 +90,8 @@ function __mt_fish_prompt_generic_thinending
     echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
-#    set_color normal 
     echo -n (~/configuration/git-radar/git-radar --fish --fetch --no-space)' '
     set_color $__mt_git_bg -b $__mt_prompt_git_fg 
-    #echo -n \u276f
     echo -n $__mt_prompt_char_right_arrow
     set_color -o blue -b normal 
     echo -n ' '$__mt_prompt_char_lambda' '
