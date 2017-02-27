@@ -1,5 +1,6 @@
 set -g fish_prompt_pwd_dir_length 4 
 
+
 set -g __mt_git_bg white 
 set -g __mt_git_fg normal 
 set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
@@ -110,12 +111,13 @@ end
 function __mt_fish_prompt_generic_thinending
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
     echo -n (prompt_pwd)' '
-    set_color $__mt_prompt_pwd_bg -b normal 
+    set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
 #    set_color normal 
     echo -n (~/configuration/git-radar/git-radar --fish --fetch --no-space)' '
-    set_color $__mt_prompt_git_fg -b normal
-    echo -n \u276f
+    set_color $__mt_git_bg -b $__mt_prompt_git_fg 
+    #echo -n \u276f
+    echo -n $__mt_prompt_char_right_arrow
     set_color -o blue -b normal 
     echo -n ' '$__mt_prompt_char_lambda' '
     set_color blue -b normal
