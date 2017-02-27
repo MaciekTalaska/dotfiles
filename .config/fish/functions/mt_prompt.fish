@@ -1,20 +1,10 @@
 set -g fish_prompt_pwd_dir_length 4 
 
-
-#set -g __mt_git_bg (set_color green)
-#set -g __mt_git_fg (set_color -b brblack)
-##set -g __mt_prompt_git_color (set_color -b white) 
-#set -g __mt_prompt_git_color $__mt_git_fg$__mt_git_bg 
-
-set -g __mt_git_bg black
-set -g __mt_git_fg green
+set -g __mt_git_bg white 
+set -g __mt_git_fg normal 
 set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
 
-#set -xU GIT_RADAR_FORMAT "$__mt_prompt_git_color%{branch}%{local}%{changes}%{remote}%{stash}"
 set -xU GIT_RADAR_FORMAT "%{branch}%{ :local}%{ :changes}%{remote: }%{stash}"
-
-
-
 
 set -xU GIT_RADAR_COLOR_BRANCH $__mt_prompt_git_color  
 set -xU GIT_RADAR_COLOR_LOCAL_BEHIND $__mt_prompt_git_color  
@@ -30,83 +20,79 @@ set -xU GIT_RADAR_COLOR_CHANGES_UNTRACKED $__mt_prompt_git_color
 set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color  
 set -xU GIT_RADAR_MASTER_SYMBOL $__mt_prompt_git_color
 
-
 set -xU GIT_RADAR_COLOR_LOCAL_RESET $__mt_prompt_git_color 
 set -xU GIT_RADAR_COLOR_REMOTE_RESET $__mt_prompt_git_color 
 set -xU GIT_RADAR_COLOR_CHANGES_RESET $__mt_prompt_git_color 
 set -xU GIT_RADAR_COLOR_BRANCH_RESET $__mt_prompt_git_color 
 set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color 
 
+#function __mt_fish_prompt_bluepwd_gitradar_greenwhitelambda
+#    #set_color $fish_color_cwd
+#    set_color white -b blue
+#    echo -n (prompt_pwd)' '
+#    set_color blue -b normal 
+#    echo -n \ue0b0
+#    set_color normal 
+#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
+#    set_color brwhite -b green 
+#    echo -n \ue0b0
+#    set_color -o white -b green 
+#    echo -n ' '\u03bb' '
+#    set_color green -b normal
+#    echo -n \ue0b0' '
+#    set_color normal
+#end
 
+#function __mt_fish_prompt_bluepwd_gitradar_blackgreenlambda 
+#    #set_color $fish_color_cwd
+#    set_color white -b blue
+#    echo -n (prompt_pwd)' '
+#    set_color blue -b normal 
+#    echo -n \ue0b0
+#    set_color normal 
+#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
+#    set_color brwhite -b brblack
+#    echo -n \ue0b0
+#    set_color green -b brblack 
+#    echo -n ' '\u03bb' '
+#    set_color brblack -b normal
+#    echo -n \ue0b0' '
+#    set_color normal
+#end
 
+#function __mt_fish_prompt_blue_thinarrowending
+#    #set_color $fish_color_cwd
+#    set_color -o white -b blue
+#    echo -n (prompt_pwd)' '
+#    set_color blue -b normal 
+#    echo -n \ue0b0
+#    set_color normal 
+#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
+#    set_color brwhite -b normal 
+#    echo -n \u276f
+#    set_color -o blue -b normal 
+#    echo -n ' '\u03bb' '
+#    set_color blue -b normal
+#    echo -n \u276f' '
+#    set_color normal
+#end
 
-function __mt_fish_prompt_bluepwd_gitradar_greenwhitelambda
-    #set_color $fish_color_cwd
-    set_color white -b blue
-    echo -n (prompt_pwd)' '
-    set_color blue -b normal 
-    echo -n \ue0b0
-    set_color normal 
-    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-    set_color brwhite -b green 
-    echo -n \ue0b0
-    set_color -o white -b green 
-    echo -n ' '\u03bb' '
-    set_color green -b normal
-    echo -n \ue0b0' '
-    set_color normal
-end
-
-function __mt_fish_prompt_bluepwd_gitradar_blackgreenlambda 
-    #set_color $fish_color_cwd
-    set_color white -b blue
-    echo -n (prompt_pwd)' '
-    set_color blue -b normal 
-    echo -n \ue0b0
-    set_color normal 
-    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-    set_color brwhite -b brblack
-    echo -n \ue0b0
-    set_color green -b brblack 
-    echo -n ' '\u03bb' '
-    set_color brblack -b normal
-    echo -n \ue0b0' '
-    set_color normal
-end
-
-function __mt_fish_prompt_blue_thinarrowending
-    #set_color $fish_color_cwd
-    set_color -o white -b blue
-    echo -n (prompt_pwd)' '
-    set_color blue -b normal 
-    echo -n \ue0b0
-    set_color normal 
-    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-    set_color brwhite -b normal 
-    echo -n \u276f
-    set_color -o blue -b normal 
-    echo -n ' '\u03bb' '
-    set_color blue -b normal
-    echo -n \u276f' '
-    set_color normal
-end
-
-function __mt_fish_prompt_fatblue
-    #set_color $fish_color_cwd
-    set_color -o white -b blue
-    echo -n (prompt_pwd)' '
-    set_color blue -b normal 
-    echo -n \ue0b0
-    set_color normal 
-    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-    set_color brwhite -b blue
-    echo -n \ue0b0
-    set_color -o white -b blue 
-    echo -n ' '\u03bb' '
-    set_color blue -b normal
-    echo -n \ue0b0' '
-    set_color normal
-end
+#function __mt_fish_prompt_fatblue
+#    #set_color $fish_color_cwd
+#    set_color -o white -b blue
+#    echo -n (prompt_pwd)' '
+#    set_color blue -b normal 
+#    echo -n \ue0b0
+#    set_color normal 
+#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
+#    set_color brwhite -b blue
+#    echo -n \ue0b0
+#    set_color -o white -b blue 
+#    echo -n ' '\u03bb' '
+#    set_color blue -b normal
+#    echo -n \ue0b0' '
+#    set_color normal
+#end
 
 # -=[ all functions above should be removed ]=-
 function __mt_fish_prompt_whitebluepwd_whitegreenlambda
@@ -171,7 +157,7 @@ function __mt_fish_prompt_generic_thinending
     echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b normal 
     echo -n \ue0b0
-    set_color normal 
+#    set_color normal 
     echo -n (~/configuration/git-radar/git-radar --fish --fetch --no-space)' '
     set_color $__mt_prompt_git_fg -b normal
     echo -n \u276f
