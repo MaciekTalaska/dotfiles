@@ -1,6 +1,5 @@
 set -g fish_prompt_pwd_dir_length 4 
 
-
 set -g __mt_git_bg white 
 set -g __mt_git_fg normal 
 set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
@@ -31,26 +30,6 @@ set -g __mt_prompt_char_right_arrow \ue0b0
 set -g __mt_prompt_char_lambda \u03bb
 
 
-
-#function __mt_fish_prompt_blue_thinarrowending
-#    #set_color $fish_color_cwd
-#    set_color -o white -b blue
-#    echo -n (prompt_pwd)' '
-#    set_color blue -b normal 
-#    echo -n $__mt_prompt_char_right_arrow
-#    set_color normal 
-#    echo -n (~/configuration/git-radar/git-radar --fish --fetch)' '
-#    set_color brwhite -b normal 
-#    echo -n \u276f
-#    set_color -o blue -b normal 
-#    echo -n ' '$__mt_prompt_char_lambda' '
-#    set_color blue -b normal
-#    echo -n \u276f' '
-#    set_color normal
-#end
-
-
-# -=[ all functions above should be removed ]=-
 function __mt_fish_prompt_whitebluepwd_whitegreenlambda
     set -g __mt_prompt_pwd_fg white
     set -g __mt_prompt_pwd_bg blue
