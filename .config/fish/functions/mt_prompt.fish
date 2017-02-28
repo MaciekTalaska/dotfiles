@@ -31,6 +31,14 @@ set -g __mt_prompt_char_lambda \u03bb
 
 set -g __mt_prompt_multiline 0 
 
+function mt_prompt_multi
+  set -xU __mt_prompt_multiline
+end
+
+function mt_prompt_single
+  set -e __mt_prompt_multiline
+end
+
 function __mt_fish_prompt_whitebluepwd_whitegreenlambda
     set -g __mt_prompt_pwd_fg white
     set -g __mt_prompt_pwd_bg blue
@@ -125,7 +133,9 @@ function __mt_simple_prompt
   echo -n (prompt_pwd)
   set_color normal
   echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
+  if test -n "$__mt_prompt_multiline" 
+    echo
+  end
   set_color normal
-  #echo -n ' > '
   echo '' $__mt_prompt_char_lambda ''
 end
