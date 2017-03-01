@@ -4,32 +4,60 @@ set -g __mt_git_bg white
 set -g __mt_git_fg normal 
 set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
 
-set -xU GIT_RADAR_FORMAT "%{branch}%{ :local}%{ :changes}%{remote: }%{stash}"
+function __mt_prompt_clear_git_radar_customizations
+  set -e GIT_RADAR_FORMAT 
 
-set -xU GIT_RADAR_COLOR_BRANCH $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_LOCAL_BEHIND $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_LOCAL_DIVERGED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_REMOTE_AHEAD $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_REMOTE_BEHIND $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_REMOTE_DIVERGED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_REMOTE_NOT_UPSTREAM $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_CHANGES_STAGED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_CHANGES_UNSTAGED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_CHANGES_CONFLICTED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_CHANGES_UNTRACKED $__mt_prompt_git_color  
-set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color  
-set -xU GIT_RADAR_MASTER_SYMBOL $__mt_prompt_git_color
+  set -e GIT_RADAR_COLOR_BRANCH 
+  set -e GIT_RADAR_COLOR_LOCAL_BEHIND 
+  set -e GIT_RADAR_COLOR_LOCAL_DIVERGED 
+  set -e GIT_RADAR_COLOR_REMOTE_AHEAD 
+  set -e GIT_RADAR_COLOR_REMOTE_BEHIND 
+  set -e GIT_RADAR_COLOR_REMOTE_DIVERGED 
+  set -e GIT_RADAR_COLOR_REMOTE_NOT_UPSTREAM 
+  set -e GIT_RADAR_COLOR_CHANGES_STAGED 
+  set -e GIT_RADAR_COLOR_CHANGES_UNSTAGED 
+  set -e GIT_RADAR_COLOR_CHANGES_CONFLICTED 
+  set -e GIT_RADAR_COLOR_CHANGES_UNTRACKED 
+  set -e GIT_RADAR_COLOR_STASH 
+  set -e GIT_RADAR_MASTER_SYMBOL 
 
-set -xU GIT_RADAR_COLOR_LOCAL_RESET $__mt_prompt_git_color 
-set -xU GIT_RADAR_COLOR_REMOTE_RESET $__mt_prompt_git_color 
-set -xU GIT_RADAR_COLOR_CHANGES_RESET $__mt_prompt_git_color 
-set -xU GIT_RADAR_COLOR_BRANCH_RESET $__mt_prompt_git_color 
-set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color 
+  set -e GIT_RADAR_COLOR_LOCAL_RESET 
+  set -e GIT_RADAR_COLOR_REMOTE_RESET 
+  set -e GIT_RADAR_COLOR_CHANGES_RESET 
+  set -e GIT_RADAR_COLOR_BRANCH_RESET 
+  set -e GIT_RADAR_COLOR_STASH 
+end
+
+function __mt_prompt_customize_git_radar
+  if not test -n "$GIT_RADAR_FORMAT"
+    set -xU GIT_RADAR_FORMAT "%{branch}%{ :local}%{ :changes}%{remote: }%{stash}"
+
+    set -xU GIT_RADAR_COLOR_BRANCH $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_LOCAL_BEHIND $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_LOCAL_DIVERGED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_REMOTE_AHEAD $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_REMOTE_BEHIND $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_REMOTE_DIVERGED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_REMOTE_NOT_UPSTREAM $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_CHANGES_STAGED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_CHANGES_UNSTAGED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_CHANGES_CONFLICTED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_CHANGES_UNTRACKED $__mt_prompt_git_color  
+    set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color  
+    set -xU GIT_RADAR_MASTER_SYMBOL $__mt_prompt_git_color
+
+    set -xU GIT_RADAR_COLOR_LOCAL_RESET $__mt_prompt_git_color 
+    set -xU GIT_RADAR_COLOR_REMOTE_RESET $__mt_prompt_git_color 
+    set -xU GIT_RADAR_COLOR_CHANGES_RESET $__mt_prompt_git_color 
+    set -xU GIT_RADAR_COLOR_BRANCH_RESET $__mt_prompt_git_color 
+    set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color 
+  end
+end
 
 set -g __mt_prompt_char_right_arrow \ue0b0
 set -g __mt_prompt_char_lambda \u03bb
 
-set -g __mt_prompt_multiline 0 
+#set -g __mt_prompt_multiline 0 
 
 function mt_prompt_multi
   set -xU __mt_prompt_multiline
@@ -70,6 +98,8 @@ function __mt_fish_prompt_whitebluepwd_greenblacklambda
 end
 
 function __mt_fish_prompt_generic_fatending
+  #__mt_prompt_customize_git_radar
+
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
     echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
@@ -109,6 +139,8 @@ function __mt_fish_prompt_whitebluepwd_thinending
 end
 
 function __mt_fish_prompt_generic_thinending
+  #__mt_prompt_customize_git_radar
+
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
     echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
@@ -130,7 +162,7 @@ function __mt_simple_prompt
   set -g __mt_git_bg normal 
   set -g __mt_git_fg normal 
   set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
-  set -e GIT_RADAR_FORMAT
+  #__mt_prompt_clear_git_radar_customizations
 
   set_color $fish_color_cwd
   echo -n (prompt_pwd)
@@ -139,6 +171,20 @@ function __mt_simple_prompt
   if test -n "$__mt_prompt_multiline" 
     echo
   end
+  set_color normal
+  echo '' $__mt_prompt_char_lambda ''
+end
+
+function __mt_simple
+  set -g __mt_git_bg normal 
+  set -g __mt_git_fg normal 
+  set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
+  #__mt_prompt_clear_git_radar_customizations
+
+  set_color $fish_color_cwd
+  echo -n (prompt_pwd)
+  set_color normal
+  echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
   set_color normal
   echo '' $__mt_prompt_char_lambda ''
 end
