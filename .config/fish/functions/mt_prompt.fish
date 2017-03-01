@@ -114,6 +114,9 @@ function __mt_fish_prompt_generic_thinending
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
     echo -n (~/configuration/git-radar/git-radar --fish --fetch --no-space)' '
+    if test -n "$__mt_prompt_multiline" 
+      echo
+    end
     set_color $__mt_git_bg -b $__mt_prompt_git_fg 
     echo -n $__mt_prompt_char_right_arrow
     set_color -o blue -b normal 
