@@ -30,7 +30,8 @@ end
 
 function __mt_prompt_customize_git_radar
   if not test -n "$GIT_RADAR_FORMAT"
-    set -xU GIT_RADAR_FORMAT "%{branch}%{ :local}%{ :changes}%{remote: }%{stash}"
+
+    set -xU GIT_RADAR_FORMAT "%{branch: }%{local: }%{changes: }%{remote: }%{stash: }"
 
     set -xU GIT_RADAR_COLOR_BRANCH $__mt_prompt_git_color  
     set -xU GIT_RADAR_COLOR_LOCAL_BEHIND $__mt_prompt_git_color  
