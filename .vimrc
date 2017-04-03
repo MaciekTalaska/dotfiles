@@ -74,8 +74,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'https://git::@github.com/SirVer/ultisnips.git'
 Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
-:set hidden  " required by lusty
-Plug 'sjbach/lusty'
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/rainbow_parentheses.vim'
 
