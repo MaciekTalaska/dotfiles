@@ -6,10 +6,6 @@ filetype off                  " required for Vundle
 " allow pasting to XWindow clipboard
 set clipboard=unnamedplus 
 
-nmap ,f :FufFileWithCurrentBufferDir<CR>
-nmap ,b :FufBuffer<CR>
-nmap ,t :FufTaggedFile<CR>
-
 " --==[ start of vim-plug section ]==-- 
 
 " idea for autoloading vim-plug taken from: https://jordaneldredge.com/blog/why-i-switched-from-vundle-to-plug/ 
@@ -21,7 +17,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
-Plug 'wincent/command-t'
+"Plug 'wincent/command-t'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
@@ -30,12 +26,22 @@ imap <C-c> <CR><Esc>O
 " better integration of vim with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
-Plug 'L9'
-Plug 'FuzzyFinder' "relies on L9 to be installed
+"nmap ,f :FufFileWithCurrentBufferDir<CR>
+"nmap ,b :FufBuffer<CR>
+"nmap ,t :FufTaggedFile<CR>
+"
+"Plug 'L9'
+"Plug 'FuzzyFinder' "relies on L9 to be installed
 Plug 'PreciseJump'
 
+nmap .b :Buffer<CR>
+nmap .f :Files<CR>
+nmap .t :Tags<CR>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+nmap ,f :LeaderfFile<CR>
+nmap ,b :LeaderfBuffer<CR>
+nmap ,t :LeaderfTag<CR>
 Plug 'Yggdroot/LeaderF'
 
 Plug 'Valloric/YouCompleteMe'
@@ -65,7 +71,7 @@ Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
 Plug 'justinmk/vim-sneak'
-Plug 'kien/ctrlp.vim'
+"Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
