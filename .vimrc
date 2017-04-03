@@ -3,6 +3,13 @@ set shell=/bin/bash
 set nocompatible              " be iMproved, required
 filetype off                  " required for Vundle
 
+" allow pasting to XWindow clipboard
+set clipboard=unnamedplus 
+
+nmap ,f :FufFileWithCurrentBufferDir<CR>
+nmap ,b :FufBuffer<CR>
+nmap ,t :FufTaggedFile<CR>
+
 " --==[ start of vim-plug section ]==-- 
 
 " idea for autoloading vim-plug taken from: https://jordaneldredge.com/blog/why-i-switched-from-vundle-to-plug/ 
@@ -26,6 +33,10 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 Plug 'L9'
 Plug 'FuzzyFinder' "relies on L9 to be installed
 Plug 'PreciseJump'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'Yggdroot/LeaderF'
 
 Plug 'Valloric/YouCompleteMe'
 let g:ycm_add_preview_to_completeopt=0
