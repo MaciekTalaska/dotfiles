@@ -32,7 +32,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 "
 "Plug 'L9'
 "Plug 'FuzzyFinder' "relies on L9 to be installed
-Plug 'PreciseJump'
+"Plug 'PreciseJump'
 
 nmap .b :Buffer<CR>
 nmap .f :Files<CR>
