@@ -16,7 +16,7 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'                 " I don't think I need a git plugin
 "Plug 'wincent/command-t'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'nathanaelkane/vim-indent-guides'
@@ -80,6 +80,21 @@ Plug 'airblade/vim-gitgutter'
 Plug 'https://git::@github.com/SirVer/ultisnips.git'
 Plug 'honza/vim-snippets'
 Plug 'mileszs/ack.vim'
+
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 Plug 'easymotion/vim-easymotion'
 Plug 'kien/rainbow_parentheses.vim'
 
