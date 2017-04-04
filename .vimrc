@@ -16,8 +16,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-"Plug 'tpope/vim-fugitive'                 " I don't think I need a git plugin
-"Plug 'wincent/command-t'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
@@ -25,14 +23,6 @@ imap <C-c> <CR><Esc>O
 
 " better integration of vim with tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
-
-"nmap ,f :FufFileWithCurrentBufferDir<CR>
-"nmap ,b :FufBuffer<CR>
-"nmap ,t :FufTaggedFile<CR>
-"
-"Plug 'L9'
-"Plug 'FuzzyFinder' "relies on L9 to be installed
-"Plug 'PreciseJump'
 
 nmap .b :Buffer<CR>
 nmap .f :Files<CR>
@@ -71,7 +61,6 @@ Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/syntastic'
 Plug 'justinmk/vim-sneak'
-"Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
@@ -117,8 +106,6 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-ragtag'
 Plug 'gorodinskiy/vim-coloresque'
 
-" Rust 
-" Plug 'phildawes/racer' 
 call plug#end()
 
 " --==[ end of vim-plug section ]==--
