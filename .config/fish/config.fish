@@ -16,7 +16,3 @@ mt_customize_abbreviations
 set __editor vim
 set -Ux EDITOR $__editor 
 set -Ux VISUAL $__editor
-
-#set -gx GOROOT_BOOTSTRAP "/home/emgieha/.gvm/gos/go1.7.4"
-#set -gx GOPATH ~/projects/go-projects
-#set PATH $GOPATH/bin $PATH 
