@@ -9,10 +9,12 @@ UXTerm*faceSize: 11
 XTerm*allowBoldFonts: false
 UXTerm*allowBoldFonts: false
 
-XTerm*pointerColor: white
-XTerm*pointerColorBackground: black
-XTerm*cursorColor: red
-XTerm*cursorBlink: true
+! Cursor is special - I want to have it red, blinking block
+UXTerm*cursorColor:            red 
+UXTerm*cursorBlink:            true
+XTerm*cursorColor:             red 
+XTerm*cursorBlink:             true
+
 *customization:	-color
 Xcursor.size:	18
 Xcursor.theme:	breeze_cursors
@@ -23,12 +25,6 @@ UXTerm*selectToClipboard: true
 xterm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
-
-! Cursor is special - I want to have it red, blinking block
-UXTerm*cursorColor:            red 
-UXTerm*cursorBlink:            true
-XTerm*cursorColor:             red 
-XTerm*cursorBlink:             true
 
 ! Solarized colors
 ! taken from: https://github.com/solarized/xresources/blob/master/Xresources.light
@@ -41,12 +37,21 @@ XTerm*cursorBlink:             true
 #define S_base2         #eee8d5
 #define S_base3         #fdf6e3
 
-*background:            S_base3
-*foreground:            S_base00
-*fadeColor:             S_base3
-*cursorColor:           S_base01
-*pointerColorBackground:S_base1
-*pointerColorForeground:S_base01
+XTerm*background:            S_base3
+XTerm*foreground:            S_base00
+XTerm*fadeColor:             S_base3
+! DO NOT override mouse pointer colors
+! XTerm*cursorColor:           S_base01
+! XTerm*pointerColorBackground:S_base1
+! XTerm*pointerColorForeground:S_base01
+
+UXTerm*background:            S_base3
+UXTerm*foreground:            S_base00
+UXTerm*fadeColor:             S_base3
+! DO NOT override mouse pointer colors
+! UXTerm*cursorColor:           S_base01
+! UXTerm*pointerColorBackground:S_base1
+! UXTerm*pointerColorForeground:S_base01
 
 #define S_yellow        #b58900
 #define S_orange        #cb4b16
