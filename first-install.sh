@@ -10,3 +10,5 @@ cd ..
 
 git clone https://github.com/michaeldfallen/git-radar
 cd ..
+
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
