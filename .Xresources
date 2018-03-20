@@ -6,6 +6,9 @@ UXTerm*renderFont: true
 UXTerm*faceName: DejaVu Sans Mono for Powerline
 UXTerm*faceSize: 11
 
+XTerm*allowBoldFonts: false
+UXTerm*allowBoldFonts: false
+
 XTerm*pointerColor: white
 XTerm*pointerColorBackground: black
 XTerm*cursorColor: red
