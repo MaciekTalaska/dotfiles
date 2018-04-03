@@ -1,10 +1,10 @@
 XTerm*renderFont: true
 XTerm*faceName: DejaVu Sans Mono for Powerline
-XTerm*faceSize: 11
+XTerm*faceSize: 11,5
 
 UXTerm*renderFont: true
 UXTerm*faceName: DejaVu Sans Mono for Powerline
-UXTerm*faceSize: 11
+UXTerm*faceSize: 11,5
 
 XTerm*allowBoldFonts: false
 UXTerm*allowBoldFonts: false
