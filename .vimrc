@@ -100,6 +100,7 @@ Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 Plug 'Quramy/tsuquyomi'
 Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " HTML
 Plug 'mattn/emmet-vim'
