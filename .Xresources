@@ -26,6 +26,9 @@ xterm*VT100.Translations: #override \
                  Ctrl Shift <Key>V:    insert-selection(CLIPBOARD) \n\
                  Ctrl Shift <Key>C:    copy-selection(CLIPBOARD)
 
+
+XTerm*eightBitInput: false
+UXTerm*eightBitInput: false
 ! Solarized colors
 ! taken from: https://github.com/solarized/xresources/blob/master/Xresources.light
 #define S_base03        #002b36
