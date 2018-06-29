@@ -11,7 +11,7 @@ create_executables() {
 
 create_simple_executable() {
 # this is inspired by part of asdf-haskell: https://github.com/vic/asdf-haskell
-    echo "creaging $local_bin/$1..."
+    echo "creating $local_bin/$1..."
     echo "#!/usr/bin/env bash" | sudo tee --append $local_bin/$1 > /dev/null
     echo "exec $local_bin/stack exec $1 -- \$*" | sudo tee --append $local_bin/$1  > /dev/null
     sudo chmod +x $local_bin/$1
