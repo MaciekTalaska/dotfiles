@@ -2,58 +2,19 @@
 
 local_bin=/usr/local/bin
 
-#cat <<EOF > $local_bin/ghc
-##!/usr/bin/env bash
-#exec $local_bin/stack exec ghc -- \$*
-#EOF
-#
-#cat <<EOF > $local_bin/ghci
-##!/usr/bin/env bash
-#exec $local_bin/stack exec ghci -- \$*
-#EOF
-#
-#cat <<EOF > $local_bin/ghc-pkg
-##!/usr/bin/env bash
-#exec $local_bin/stack exec ghc-pkg -- \$*
-#EOF
-#
-#cat <<EOF > $local_bin/haddock
-##!/usr/bin/env bash
-#exec $local_bin/stack exec haddock -- \$*
-#EOF
-#
-#cat <<EOF > $local_bin/runghc
-##!/usr/bin/env bash
-#exec $local_bin/stack exec runghc -- \$*
-#EOF
-#
-#cat <<EOF > $local_bin/runhaskell
-##!/usr/bin/env bash
-#exec $local_bin/stack exec runhaskell -- \$*
-#EOF
-
 create_executables() {
-    echo "-= [create_executables] =-"
-    echo $@
     for var in "$@"
     do
-        #echo "parameter: $var"
         (create_simple_executable $var)
     done
 }
 
 create_simple_executable() {
 # this is inspired by part of asdf-haskell: https://github.com/vic/asdf-haskell
-#cat > $local_bin/$1 <<EOF
-#
-##!/usr/bin/env bash
-#exec $local_bin/stack exec $1 -- \$* 
-#EOF
     echo "creaging $local_bin/$1..."
     echo "#!/usr/bin/env bash" | sudo tee --append $local_bin/$1 > /dev/null
     echo "exec $local_bin/stack exec $1 -- \$*" | sudo tee --append $local_bin/$1  > /dev/null
     sudo chmod +x $local_bin/$1
 }
 
-# create_executables ghc ghci ghc-pkg haddock runghc runhaskell
-create_executables ghc
+create_executables ghc ghci ghc-pkg haddock runghc runhaskell
