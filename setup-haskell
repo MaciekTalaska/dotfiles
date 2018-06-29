@@ -17,4 +17,20 @@ create_simple_executable() {
     sudo chmod +x $local_bin/$1
 }
 
-create_executables ghc ghci ghc-pkg haddock runghc runhaskell
+remove_haskell_links() {
+    for var in "$@"
+    do
+        (remove_single_file $var)
+    done
+}
+
+remove_single_file() {
+    echo "removing $local_bin/$1..."
+    sudo rm $local_bin/$1
+}
+
+if [ $1 == "uninstall" ] ; then
+    remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell
+else
+    create_executables ghc ghci ghc-pkg haddock runghc runhaskell
+fi
