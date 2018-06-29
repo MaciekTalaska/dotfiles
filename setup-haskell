@@ -29,7 +29,7 @@ remove_single_file() {
     sudo rm $local_bin/$1
 }
 
-if [ $1 == "uninstall" ] ; then
+if [ "$1" = "uninstall" ] ; then
     remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell
 else
     create_executables ghc ghci ghc-pkg haddock runghc runhaskell
