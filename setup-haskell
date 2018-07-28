@@ -1,0 +1,36 @@
+#! /usr/bin/env bash
+
+local_bin=/usr/local/bin
+
+create_executables() {
+    for var in "$@"
+    do
+        (create_simple_executable $var)
+    done
+}
+
+create_simple_executable() {
+# this is inspired by part of asdf-haskell: https://github.com/vic/asdf-haskell
+    echo "creating $local_bin/$1..."
+    echo "#!/usr/bin/env bash" | sudo tee --append $local_bin/$1 > /dev/null
+    echo "exec $local_bin/stack exec $1 -- \$*" | sudo tee --append $local_bin/$1  > /dev/null
+    sudo chmod +x $local_bin/$1
+}
+
+remove_haskell_links() {
+    for var in "$@"
+    do
+        (remove_single_file $var)
+    done
+}
+
+remove_single_file() {
+    echo "removing $local_bin/$1..."
+    sudo rm $local_bin/$1
+}
+
+if [ "$1" = "uninstall" ] ; then
+    remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell
+else
+    create_executables ghc ghci ghc-pkg haddock runghc runhaskell
+fi
