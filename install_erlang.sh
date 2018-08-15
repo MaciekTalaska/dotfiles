@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+
+codename=$(sudo cat /etc/lsb-release|grep DISTRIB_CODENAME | sed s/DISTRIB_CODENAME=//)
+
+echo "deb https://packages.erlang-solutions.com/ubuntu $codename contrib" | sudo tee /etc/apt/sources.list.d/erlang.list > null
+
+sudo apt-key adv --fetch https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc
+sudo apt update
+sudo apt install erlang erlang-doc erlang-manpages
+
+
