@@ -16,8 +16,6 @@ if empty(glob("~/.vim/autoload/plug.vim"))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plug 'nathanaelkane/vim-indent-guides'
 Plug 'Raimondi/delimitMate'
 imap <C-c> <CR><Esc>O
 
@@ -34,14 +32,6 @@ nmap ,b :LeaderfBuffer<CR>
 nmap ,t :LeaderfTag<CR>
 Plug 'Yggdroot/LeaderF'
 
-"Plug 'Valloric/YouCompleteMe'
-"let g:ycm_add_preview_to_completeopt=0
-"let g:ycm_confirm_extra_conf=0
-"set completeopt-=preview
-"" Plug 'Shougo/neocomplete.vim'
-"Plug 'Shougo/vimproc.vim'
-
-"Plug 'marijnh/tern_for_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 let g:bufferline_echo = 0
@@ -53,9 +43,9 @@ let g:airline_theme='base16'
 set laststatus=2
 Plug 'edkolev/tmuxline.vim'
 
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 nmap <F8> :TagbarToggle<CR>
-Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
@@ -85,27 +75,15 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 Plug 'easymotion/vim-easymotion'
-"Plug 'kien/rainbow_parentheses.vim'
 
 " Markdown
 Plug 'suan/vim-instant-markdown'
 
-" Go 
-"Plug 'Blackrush/vim-gocode'
-
-" JavaScript 
-"Plug 'jelera/vim-javascript-syntax'
-"Plug 'pangloss/vim-javascript'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
-"Plug 'Quramy/tsuquyomi'
-"Plug 'leafgarland/typescript-vim'
-"Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " HTML
 "Plug 'mattn/emmet-vim'
-"Plug 'tpope/vim-ragtag'
-"Plug 'gorodinskiy/vim-coloresque'
 
 call plug#end()
 
