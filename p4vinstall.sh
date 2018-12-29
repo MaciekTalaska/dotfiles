@@ -50,9 +50,6 @@ create_symlink() {
 }
 
 download_p4merge_archive() {
-    # TODO: instead of hard-coded url for a specific version
-    # it would be best to get info on the newest version availablev
-    #wget -O p4v.tgz http://filehost.perforce.com/perforce/r18.2/bin.linux26x86_64/p4v.tgz
     version=$(get_latest_version_info)
     wget -O p4v.tgz http://filehost.perforce.com/perforce/${version}/bin.linux26x86_64/p4v.tgz
 }
