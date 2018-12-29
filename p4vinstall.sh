@@ -52,7 +52,19 @@ create_symlink() {
 download_p4merge_archive() {
     # TODO: instead of hard-coded url for a specific version
     # it would be best to get info on the newest version availablev
-    wget -O p4v.tgz http://filehost.perforce.com/perforce/r18.2/bin.linux26x86_64/p4v.tgz
+    #wget -O p4v.tgz http://filehost.perforce.com/perforce/r18.2/bin.linux26x86_64/p4v.tgz
+    version=$(get_latest_version_info)
+    wget -O p4v.tgz http://filehost.perforce.com/perforce/${version}/bin.linux26x86_64/p4v.tgz
+}
+
+get_latest_version_info() {
+    local content=$(curl -s http://filehost.perforce.com/perforce/)
+    local lines=$(awk '/>r/{print $5,$6}' <<< $content)
+    local versions=$(sed -e 's/href="\(r.\{4\}\).*/\1/' <<< $lines)
+    #for some reason there are no binaries for 18.5
+    #local latest=$(tail -n1 <<< "$versions")
+    local latest=$(tail -2 <<< "$versions" | head -1)
+    echo $latest
 }
 
 extract_p4merge() {
