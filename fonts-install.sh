@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 pushd pwd
-mkdir ~/config
+mkdir -p ~/config
 cd ~/config
 
 echo "downloading powerline fonts"
