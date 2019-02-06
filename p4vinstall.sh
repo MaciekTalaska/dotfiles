@@ -56,10 +56,11 @@ download_p4merge_archive() {
 
 get_latest_version_info() {
     local content=$(curl -s http://filehost.perforce.com/perforce/)
-    local lines=$(awk '/>r/{print $5,$6}' <<< $content)
-    local versions=$(sed -e 's/href="\(r.\{4\}\).*/\1/' <<< $lines)
+    local lines=$(awk '/>r/{print $5,$6}' <<< "$content")
+    local entries=$(sed -e 's/href="\(r.\{4\}\).*/\1/' <<< "$lines")
     #for some reason there are no binaries for 18.5
     #local latest=$(tail -n1 <<< "$versions")
+    local versions=$(sed '/robot/d' <<< "$entries")
     local latest=$(tail -2 <<< "$versions" | head -1)
     echo $latest
 }
