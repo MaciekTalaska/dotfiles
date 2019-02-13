@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -117,9 +117,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$HOME/apps/sbt/bin:$PATH
 
-[[ -s "/home/emgieha/.gvm/scripts/gvm" ]] && source "/home/emgieha/.gvm/scripts/gvm"
-
-
 function _update_ps1() {
     PS1="$(~/configuration/powerline-shell/powerline-shell.py $? 2> /dev/null)"
 }
@@ -129,5 +126,12 @@ if [ "$TERM" != "linux" ]; then
 fi
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
