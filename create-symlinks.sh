@@ -6,19 +6,12 @@ current_dir=$(pwd)
 
 files=('.bashrc' 
         '.vimrc' 
-        './gitconfig' 
+        '.gitconfig' 
         '.spacemacs' 
         '.tmux.conf' 
         '.Xresources' 
         '.zprofile' 
         '.zshrc')
-
-for f in "${files[@]}"
-do
-    echo $f
-    echo $current_dir/$f
-    echo $home/$f
-done
 
 create_symlinks() {
     for file in "${files[@]}"
@@ -28,13 +21,13 @@ create_symlinks() {
 }
 
 remove_symlinks() {
-    for file in "$files[@]"
+    for file in "${files[@]}"
     do
         rm $home/$file
     done
 }
 
-if [ $1 = "-u" ];
+if [ "$1" = "-u" ];
 then
     remove_symlinks
 else
