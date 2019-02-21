@@ -67,7 +67,12 @@
 	pl = pull
 	
 	me = config user.name
+	dt = difftool
 [core]
 	editor = vim
 	autocrlf = input 
 
+[diff]
+	tool = kompare
+[difftool]
+	prompt = false
