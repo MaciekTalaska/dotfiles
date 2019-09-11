@@ -26,19 +26,22 @@ print_usage() {
   echo "this will install all global packages from 10.16.3 to 12.10.0"
 }
 
+check_for_arguments() {
+  if [ -z "$1" ]
+  then
+    print_usage
+    exit 1
+  fi
 
-if [ -z "$1" ]
-then
-  print_usage
-  exit 1
-fi
+  if [ -z "$2" ]
+  then
+    print_usage
+    exit 1
+  fi
+}
 
-if [ -z "$2" ]
-then
-  print_usage
-  exit 1
-fi
 
+check_for_arguments $1 $2
 packages=$(retrieve_packages_names $2)
 
 install_packages $1 "$packages"
