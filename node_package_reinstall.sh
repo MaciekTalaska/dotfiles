@@ -15,6 +15,20 @@ install_packages() {
   npm install -g $2
 }
 
+print_usage() {
+  echo "this script requires two NodeJS versions to be specified"
+  echo "the new version just recently installed (target)"
+  echo "and the old version, with some packages already installed (source)"
+  echo -e "\n"
+  echo "Example of usage: "
+  echo "node_package_reinstall 12.10.0 10.16.3"
+  echo -e "\n"
+  echo "this will install all global packages from 10.16.3 to 12.10.0"
+}
+
+
+
+
 packages=$(retrieve_packages_names $2)
 
 install_packages $1 "$packages"
