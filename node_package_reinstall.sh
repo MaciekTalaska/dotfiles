@@ -18,12 +18,11 @@ retrieve_packages_names() {
   if [ $? -ne 0 ]
   then
     echo ""
-    # error code doesn't matter at all, empty string will be returned anyway
+    # error code doesn't matter at all, empty string ^ will be returned anyway
     return
   fi
 
   packages=$(npm list -g --depth=0 --parseable)
-  #packages=$(cat npm_packages.txt)
 	asdf_path=$(which asdf | sed 's:/bin/asdf::')
 	full_path="$asdf_path""/installs/nodejs/""$1""/.npm/lib/node_modules/"
 	installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
@@ -67,15 +66,12 @@ check_for_arguments() {
   fi
 }
 
-# exit script if asdf or any other command return non 0 error code
-#set -e
+# NOTE: don't want to use 'set -e' as there will be no control of error code returned
 
 check_for_arguments $1 $2
 packages=$(retrieve_packages_names $2)
-#echo "content of packages: $packages"
 if [ -z "$packages" ]
 then
-  echo "error occurred. exiting..."
   exit 2
 fi
 
