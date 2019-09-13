@@ -23,21 +23,26 @@ retrieve_packages_names() {
   fi
 
   packages=$(npm list -g --depth=0 --parseable)
-	asdf_path=$(which asdf | sed 's:/bin/asdf::')
-	full_path="$asdf_path""/installs/nodejs/""$1""/.npm/lib/node_modules/"
-	installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
-	echo "$installed_packages"
+  asdf_path=$(which asdf | sed 's:/bin/asdf::')
+  full_path="$asdf_path""/installs/nodejs/""$1""/.npm/lib/node_modules/"
+  installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
+  echo "$installed_packages"
 }
 
 install_packages() {
-	asdf global nodejs $1
+  asdf global nodejs $1
   if [ $? -ne 0 ]
   then
     exit 3 
   fi
 
   # by default npm is just too chatty...
+  # NOTE: asdf_nodejs is super slow when installing global packages due to reshim taking place after each package is installed
+  # so let's disable it for 
+  export ASDF_SKIP_RESHIM=1
   npm install -g --silent $2
+  # re-enable reshimming after installing a global package
+  export ASDF_SKIP_RESHIM=0
 }
 
 print_usage() {
