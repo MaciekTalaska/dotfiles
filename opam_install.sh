@@ -1,9 +1,10 @@
 #! /usr/bin/env bash
 
-OPAM_DIRECTORY=$HOME/.opam-bin
+OPAM_DIRECTORY=$HOME/mybin
 OPAM_ROOT=$HOME/.opam
 platform="-x86_64-linux"
 
+# create directory for opam binary (if it doesn't exist)
 if [ ! -d $OPAM_DIRECTORY ]; then
     echo "creating target directory for opam..."
     mkdir $OPAM_DIRECTORY
@@ -25,10 +26,10 @@ wget -qi - --show-progress --output-document=opam
 chmod +x opam
 cd -
 
-#if [[ $PATH == ?(*:)$HOME/bin?(:*) ]]; then
+# add opam directory to path, if it is not part of it 
 if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
     echo "opam directory is not in path, adding..."
-    export PATH=$OPAM_DIRECTORY:$PATH
+    echo "PATH=$OPAM_DIRECTORY:\$PATH" >> $HOME/.profile
 fi
 
-opam init --yes --root $OPAM_DIRECTORY
+$OPAM_DIRECTORY/opam init --yes --root $OPAM_ROOT
