@@ -14,7 +14,7 @@
 # 3 - unable to switch to target version (not installed? misspelled?)
 
 retrieve_packages_names() {
-	asdf global nodejs $1
+  asdf global nodejs $1
   if [ $? -ne 0 ]
   then
     echo ""
