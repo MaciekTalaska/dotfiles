@@ -14,8 +14,6 @@
 # 3 - unable to switch to target version (not installed? misspelled?)
 
 install_packages() {
-  #echo "install packages (entry point)"
-  #echo "switch to version "$1
   fnm use $1 >> /dev/null
   if [ $? -ne 0 ]
   then
@@ -23,19 +21,12 @@ install_packages() {
   fi
 
   # by default npm is just too chatty...
-  #echo "installing packages"
-  #echo "packages..."
-  #echo $packages
-  #echo "---"
-
+  # TODO: make it silent again, after testing
   #npm install -g --silent $2
   npm install -g $2
-  #npm install -g --silent `cat testtest.txt`
 }
 
 retrieve_packages_names() {
-  #echo "retrieve packages..."
-  #echo "use version "$2
   fnm use $1 >> /dev/null
   if [ $? -ne 0 ]
   then
@@ -44,13 +35,14 @@ retrieve_packages_names() {
     return
   fi
 
-  #packages=$(npm list -g --depth=0 --parseable)
-  #asdf_path=$(which fnm| sed 's:/fnm::')
-  #full_path="$asdf_path""/node-versions/""$1""/installation/lib/node_modules/"
-  #installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
+  packages=$(npm list -g --depth=0 --parseable)
+  asdf_path=$(which fnm| sed 's:/fnm::')
+  full_path="$asdf_path""/node-versions/""$1""/installation/lib/node_modules/"
+  installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
+  # TODO: remove it:
   #echo "$installed_packages" > testtest.txt
-  #echo "$installed_packages"
-  echo `cat testtest.txt`
+  #echo `cat testtest.txt`
+  echo "$installed_packages"
 }
 
 print_usage() {
@@ -82,12 +74,10 @@ check_for_arguments() {
 # NOTE: don't want to use 'set -e' as there will be no control of error code returned
 
 check_for_arguments $1 $2
-#echo "calling retrieve_packages_names..."
 packages=$(retrieve_packages_names $2)
 if [ -z "$packages" ]
 then
   exit 2
 fi
 
-#echo "calling install..."
 install_packages $1 "$packages"
