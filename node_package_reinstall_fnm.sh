@@ -22,9 +22,7 @@ install_packages() {
 
   echo "installing packages via npm..." >&2 
   # by default npm is just too chatty...
-  # TODO: make it silent again, after testing
-  #npm install -g --silent $2
-  npm install -g $2
+  npm install -g --silent $2
   echo "done." >&2
 }
 
