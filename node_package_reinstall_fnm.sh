@@ -37,8 +37,8 @@ retrieve_packages_names() {
 
   echo "retrieving installed packages for " $1 "..." >&2
   packages=$(npm list -g --depth=0 --parseable)
-  asdf_path=$(which fnm| sed 's:/fnm::')
-  full_path="$asdf_path""/node-versions/""$1""/installation/lib/node_modules/"
+  fnm_path=$(which fnm| sed 's:/fnm::')
+  full_path="$fnm_path""/node-versions/""$1""/installation/lib/node_modules/"
   installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
   echo "done.">&2
   echo "$installed_packages"
