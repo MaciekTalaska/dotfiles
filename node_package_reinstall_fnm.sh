@@ -20,10 +20,12 @@ install_packages() {
     exit 3 
   fi
 
+  echo "installing packages via npm..." >&2 
   # by default npm is just too chatty...
   # TODO: make it silent again, after testing
   #npm install -g --silent $2
   npm install -g $2
+  echo "done." >&2
 }
 
 retrieve_packages_names() {
@@ -35,13 +37,12 @@ retrieve_packages_names() {
     return
   fi
 
+  echo "retrieving installed packages for " $1 "..." >&2
   packages=$(npm list -g --depth=0 --parseable)
   asdf_path=$(which fnm| sed 's:/fnm::')
   full_path="$asdf_path""/node-versions/""$1""/installation/lib/node_modules/"
   installed_packages=$(echo "$packages" | sed '1d' | sed "s:$full_path::")
-  # TODO: remove it:
-  #echo "$installed_packages" > testtest.txt
-  #echo `cat testtest.txt`
+  echo "done.">&2
   echo "$installed_packages"
 }
 
