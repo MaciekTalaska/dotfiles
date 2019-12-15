@@ -1,35 +1,50 @@
 #! /usr/bin/env bash
 
-pushd pwd
+# parameter is source file name
+download_sourcecodepro() {
+  # part of the code below is based on the following gist:
+  # https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+  curl -s https://api.github.com/repos/adobe-fonts/source-code-pro/releases/latest \
+  | grep "$1" \
+  | cut -d : -f 2,3 \
+  | tr -d \" \
+  | wget --show-progress -qi -
+  mv SourceCodeVariable*.* ~/.local/share/fonts/
+}
+
+download_all_sourcecodepro_fonts() {
+  echo "Installing Adobe SourceCode Pro fonts..."
+  fonts=("SourceCodeVariable-Roman.otf" "SourceCodeVariable-Italic.otf") 
+  for font_name in ${fonts[@]} 
+  do
+    download_sourcecodepro $font_name
+  done
+}
+
+# this function only installs DejaVu Sans Mono Powerline font
+install_powerline_fonts() {
+  echo "downloading powerline fonts"
+  git clone https://github.com/powerline/fonts powerline-fonts
+  cd powerline-fonts
+  ./install.sh Deja
+  
+  cd ..
+  rm powerline-fonts -rf
+}
+
+clean_font_cache() {
+  echo "clean font cache..."
+  fc-cache -fv >> /dev/null
+}
+
+pushd . >> /dev/null
 mkdir -p ~/config
 cd ~/config
 
-echo "downloading powerline fonts"
-git clone https://github.com/powerline/fonts powerline-fonts
-cd powerline-fonts
-./install.sh Deja
+install_powerline_fonts
+download_all_sourcecodepro_fonts
 
-cd ..
-rm powerline-fonts -rf
+popd >> /dev/null
 
-# part of the script below is based on the following gist:
-# https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8
+clean_font_cache
 
-echo "installing SourceCodePro (book)"
-curl -s https://api.github.com/repos/adobe-fonts/source-code-pro/releases/latest \
-| grep "SourceCodeVariable-Roman.otf" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -
-
-
-echo "installing SourceCodePro (italic)"
-curl -s https://api.github.com/repos/adobe-fonts/source-code-pro/releases/latest \
-| grep "SourceCodeVariable-Italic.otf" \
-| cut -d : -f 2,3 \
-| tr -d \" \
-| wget -qi -
-
-mv SourceCodeVariable*.* ~/.local/share/fonts/
-
-popd
