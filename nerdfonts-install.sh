@@ -10,20 +10,21 @@ download_font() {
 }
 
 download_all_fonts() {
-  download_font dejavusansmono_nerd_font_complete_mono.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true
+  # this is assoctiative array in bash
+  # key is the name of the file font will be stored in
+  # and the value is the download link
+  declare -A fonts
+  fonts[dejavusansmono_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  fonts[firacode_regular_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf?raw=true"
+  fonts[hack_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  fonts[hasklung_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf?raw=true"
+  fonts[iosevka_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  fonts[mononoki_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  fonts[sauce_code_pro_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf?raw=true"
 
-  download_font firacode_regular_nerd_font_complete.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf?raw=true
-
-  download_font hack_regular_nerd_font_complete_mono.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true 
-
-  download_font hasklung_nerd_font_complete.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf?raw=true
-
-  download_font iosevka_nerd_font_complete_mono.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Nerd%20Font%20Complete%20Mono.ttf?raw=true
-
-  download_font mononoki_regular_nerd_font_complete_mono.ttf https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true
-
-  download_font suace_code_pro_nerd_font_complete.ttf      https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf?raw=true
-
+  for f in "${!fonts[@]}"; do
+    download_font "$f" "${fonts[$f]}"
+  done
 }
 
 clean_font_cache() {
@@ -32,8 +33,14 @@ clean_font_cache() {
 }
 
 uninstall() {
-  rm ~/.local/share/fonts/nerdfonts -rd
-  clean_font_cache
+  if [[ -d "$HOME/.local/share/fonts/nerdfonts" ]]
+  then
+    echo "uninstalling nerdfonts..."
+    rm ~/.local/share/fonts/nerdfonts -rd
+    clean_font_cache
+  else
+    echo "nerdfonts not present. nothing to do."
+  fi
 }
 
 install() {
@@ -46,7 +53,6 @@ install() {
 
   cd ..
   mv nerdfonts ~/.local/share/fonts/
-
   popd >> /dev/null
 
   clean_font_cache
