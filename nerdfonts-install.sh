@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 
 # this script installs the following nerd fonts:
-# Fira Code, DejaVu Sans Mono, Hasklung (Haskling), Hack, Iosevka, Mononoki, Sauce Code (Source Code Pro),  
+# Fira Code, DejaVu Sans Mono, Hack, auce Code (Source Code Pro)
 
 
 # output name, link
@@ -17,9 +17,9 @@ download_all_fonts() {
   fonts[dejavusansmono_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
   fonts[firacode_regular_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf?raw=true"
   fonts[hack_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
-  fonts[hasklung_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf?raw=true"
-  fonts[iosevka_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
-  fonts[mononoki_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  # fonts[hasklung_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hasklig/Regular/complete/Hasklug%20Nerd%20Font%20Complete.otf?raw=true"
+  # fonts[iosevka_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Iosevka/Regular/complete/Iosevka%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  # fonts[mononoki_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Mononoki/Regular/complete/mononoki-Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
   fonts[sauce_code_pro_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/SourceCodePro/Regular/complete/Sauce%20Code%20Pro%20Nerd%20Font%20Complete.ttf?raw=true"
 
   for f in "${!fonts[@]}"; do
