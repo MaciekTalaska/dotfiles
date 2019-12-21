@@ -33,7 +33,7 @@ download_all_fonts() {
 
 clean_font_cache() {
   echo "clean font cache..."
-  fc-cache -fv >> /dev/null
+  fc-cache -f
 }
 
 uninstall() {
