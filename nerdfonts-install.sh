@@ -14,8 +14,8 @@ download_all_fonts() {
   # key is the name of the file font will be stored in
   # and the value is the download link
   declare -A fonts
-  fonts[dejavusansmono_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete.ttf?raw=true"
-  fonts[dejavusansmono_nerd_font_complete_italic.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Italic/complete/DejaVu%20Sans%20Mono%20Oblique%20Nerd%20Font%20Complete.ttf"
+  fonts[dejavusansmono_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
+  fonts[dejavusansmono_nerd_font_complete_italic.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Italic/complete/DejaVu%20Sans%20Mono%20Oblique%20Nerd%20Font%20Complete%20Complete.ttf"
   fonts[firacode_regular_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/FiraCode/Regular/complete/Fira%20Code%20Regular%20Nerd%20Font%20Complete.ttf?raw=true"
   # Hack is pretty much the same as DejaVu Sans Mono
   #fonts[hack_regular_nerd_font_complete_mono.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
