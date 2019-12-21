@@ -32,11 +32,6 @@ install_powerline_fonts() {
   rm powerline-fonts -rf
 }
 
-clean_font_cache() {
-  echo "clean font cache..."
-  fc-cache -f
-}
-
 pushd . >> /dev/null
 mkdir -p ~/config
 cd ~/config
@@ -46,5 +41,5 @@ download_all_sourcecodepro_fonts
 
 popd >> /dev/null
 
-clean_font_cache
+bash _utils.sh clean_font_cache
 

@@ -31,17 +31,12 @@ download_all_fonts() {
   done
 }
 
-clean_font_cache() {
-  echo "clean font cache..."
-  fc-cache -f
-}
-
 uninstall() {
   if [[ -d "$HOME/.local/share/fonts/nerdfonts" ]]
   then
     echo "uninstalling nerdfonts..."
     rm ~/.local/share/fonts/nerdfonts -rd
-    clean_font_cache
+    bash _utils.sh clean_font_cache
   else
     echo "nerdfonts not present. nothing to do."
   fi
@@ -59,7 +54,7 @@ install() {
   mv nerdfonts ~/.local/share/fonts/
   popd >> /dev/null
 
-  clean_font_cache
+  bash _utils.sh clean_font_cache
 }
 
 
