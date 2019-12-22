@@ -72,7 +72,7 @@
 	autocrlf = input
 
 [merge]
-	tool = vimdiff
+	tool = meld
 
 [diff]
 	tool = meld
