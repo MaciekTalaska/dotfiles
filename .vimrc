@@ -5,6 +5,8 @@ filetype off                  " required for Vundle
 
 " allow pasting to XWindow clipboard
 set clipboard=unnamedplus 
+au BufNewFile,BufRead *.ejs set filetype=html
+au BufNewFile,BufRead *.styl set filetype=less
 
 " --==[ start of vim-plug section ]==-- 
 
