@@ -40,6 +40,7 @@ Plug 'Yggdroot/LeaderF'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 let g:bufferline_echo = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
