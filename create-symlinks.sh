@@ -10,6 +10,7 @@ files=('.bashrc'
         '.spacemacs' 
         '.tmux.conf' 
         '.Xresources' 
+        '.xxdiffrc'
         '.zprofile' 
         '.zshrc')
 
