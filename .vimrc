@@ -8,6 +8,10 @@ set clipboard=unnamedplus
 au BufNewFile,BufRead *.ejs set filetype=html
 au BufNewFile,BufRead *.styl set filetype=less
 
+" wrap lines in `vimdiff` mode
+" https://stackoverflow.com/questions/16840433/forcing-vimdiff-to-wrap-lines
+autocmd FilterWritePre * if &diff | setlocal wrap< | endif
+
 " --==[ start of vim-plug section ]==-- 
 
 " idea for autoloading vim-plug taken from: https://jordaneldredge.com/blog/why-i-switched-from-vundle-to-plug/ 
