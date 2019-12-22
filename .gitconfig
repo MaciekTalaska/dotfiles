@@ -67,12 +67,33 @@
 	pl = pull
 	
 	me = config user.name
-	dt = difftool
 [core]
-	editor = vim
-	autocrlf = input 
+	editor = vim 
+	autocrlf = input
+
+[merge]
+	tool = vimdiff
 
 [diff]
-	tool = kompare
+	tool = meld
+
+[mergetool]
+	prompt = true
+
 [difftool]
 	prompt = false
+
+[difftool "nvimdiff"]
+	cmd = nvim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[difftool "vimdiff"]
+	cmd = vim -d $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[difftool "ediff"]
+	cmd = emacs -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+
+[difftool "ediffclient"]
+	cmd = emacsclient -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+
+[difftool "idea"]
+	cmd = ~/apps-umake/pycharmc/bin/pycharm.sh diff $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") 
