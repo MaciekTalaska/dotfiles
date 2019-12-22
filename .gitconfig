@@ -36,7 +36,7 @@
 	cl = clone
 	co = checkout
 	st = status
-	# s = stash
+	s = stash
 	sl = stash list
 	sa = stash apply
 	ss = stash save	
