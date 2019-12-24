@@ -58,10 +58,8 @@ end
 set -g __mt_prompt_char_right_arrow \ue0b0
 set -g __mt_prompt_char_lambda \u03bb
 
-#set -g __mt_prompt_multiline 0 
-
 function mt_prompt_multi
-  set -xU __mt_prompt_multiline
+  set -xU __mt_prompt_multiline 1
 end
 
 function mt_prompt_single
