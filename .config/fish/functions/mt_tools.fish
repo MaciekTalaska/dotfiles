@@ -76,11 +76,11 @@ function __mt_remove_fishd
 end
 
 function __mt_erase_editor
-  set EDITOR ""
+  set VISUAL ""
 end
 
 function __mt_restore_editor
-  set EDITOR $__editor  
+  set VISUAL $__editor  
 end
 
 function mfunced -d "same as funced, but uses only internal fish editor"
