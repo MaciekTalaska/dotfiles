@@ -138,3 +138,6 @@ autocmd InsertEnter * :set nornu
 autocmd InsertLeave * :set relativenumber
 
 nmap ,d :b#<bar>bd#<CR> " use ,d to delete buffer while in splitmode, and switch to last used buffer
+
+" use sudow to write a file as root when forgot to open it using sudo
+cnoremap sudow w !sudo tee % >/dev/null
