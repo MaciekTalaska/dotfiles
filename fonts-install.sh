@@ -1,11 +1,11 @@
 #! /usr/bin/env bash
 
 download_jetbrains_mono() {
-	#tag=$(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
-	tag=v1.0.2
-	echo "tag is: $tag"	
-	version="${tag:1}"	
-	echo "version is $version"
+  #tag=$(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
+  tag=v1.0.2
+  echo "tag is: $tag"	
+  version="${tag:1}"	
+  echo "version is $version"
 	
 #  curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest \
 #  | grep "$1" \
@@ -19,6 +19,7 @@ download_jetbrains_mono() {
 	mkdir -p ~/.local/share/fonts/jetbrainsmono
 	mv JetBrainsMono-$version/ttf/* ~/.local/share/fonts/jetbrainsmono
 	rm JetBrainsMono-$version.zip
+	rm JetBrainsMono-$version -rd
 }
 
 # parameter is source file name
