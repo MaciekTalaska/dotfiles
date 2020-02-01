@@ -1,6 +1,8 @@
 "let g:python_host_prog = '/usr/bin/python2.7'
 let g:python3_host_prog = '/usr/bin/python3.6'
 
+set guicursor=a:blinkon101
+
 " the line below makes using fish shell less pain
 set shell=/bin/bash
 set nocompatible              " be iMproved, required
