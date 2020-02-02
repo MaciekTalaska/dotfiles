@@ -33,10 +33,11 @@ nmap .f :Files<CR>
 nmap .t :Tags<CR>
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-nmap ,f :LeaderfFile<CR>
-nmap ,b :LeaderfBuffer<CR>
-nmap ,t :LeaderfTag<CR>
-Plug 'Yggdroot/LeaderF'
+" TODO: remove
+"nmap ,f :LeaderfFile<CR>
+"nmap ,b :LeaderfBuffer<CR>
+"nmap ,t :LeaderfTag<CR>
+"Plug 'Yggdroot/LeaderF'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -82,9 +83,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 Plug 'easymotion/vim-easymotion'
-
-" Markdown
-Plug 'suan/vim-instant-markdown'
 
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
