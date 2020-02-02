@@ -62,6 +62,7 @@ Plug 'justinmk/vim-sneak'
 Plug 'scrooloose/nerdtree'
 let NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
+map <C-m> :Explore<CR>
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'https://git::@github.com/SirVer/ultisnips.git'
