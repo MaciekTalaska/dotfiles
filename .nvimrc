@@ -22,37 +22,25 @@ endif
 
 call plug#begin('~/.nvim/plugged')
 "Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
-"Plug 'nathanaelkane/vim-indent-guides'
 "Plug 'Raimondi/delimitMate'
 "imap <C-c> <CR><Esc>O
 "
 "" better integration of vim with tmux
-"Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 "
-"nmap .b :Buffer<CR>
-"nmap .f :Files<CR>
-"nmap .t :Tags<CR>
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-"Plug 'junegunn/fzf.vim'
+nmap .b :Buffer<CR>
+nmap .f :Files<CR>
+nmap .t :Tags<CR>
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+" TODO: remove
 "nmap ,f :LeaderfFile<CR>
 "nmap ,b :LeaderfBuffer<CR>
 "nmap ,t :LeaderfTag<CR>
 "Plug 'Yggdroot/LeaderF'
 "
-"Plug 'Valloric/YouCompleteMe'
-"let g:ycm_add_preview_to_completeopt=0
-"let g:ycm_confirm_extra_conf=0
-"set completeopt-=preview
-"let g:ycm_rust_src_path = '/home/emgieha/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src/' 
-"" Plug 'Shougo/neocomplete.vim'
-"Plug 'Shougo/vimproc.vim'
-
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-"  Plug 'Shougo/deoplete.nvim'
-"  Plug 'roxma/nvim-yarp'
-"  Plug 'roxma/vim-hug-neovim-rpc'
 endif
 let g:deoplete#enable_at_startup = 1
 
@@ -86,9 +74,9 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<C
 
-"Plug 'marijnh/tern_for_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 let g:bufferline_echo = 0
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -102,43 +90,45 @@ Plug 'edkolev/tmuxline.vim'
 "nmap <F8> :TagbarToggle<CR>
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'tpope/vim-sleuth'
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
 Plug 'flazz/vim-colorschemes'
-"Plug 'scrooloose/syntastic'
-"Plug 'justinmk/vim-sneak'
-"Plug 'scrooloose/nerdtree'
-"let NERDTreeShowHidden=1
-"map <C-n> :NERDTreeToggle<CR>
-"Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/syntastic'
+Plug 'justinmk/vim-sneak'
+Plug 'scrooloose/nerdtree'
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'airblade/vim-gitgutter'
 "Plug 'https://git::@github.com/SirVer/ultisnips.git'
 "Plug 'honza/vim-snippets'
 "Plug 'mileszs/ack.vim'
 
-"" <Leader>f{char} to move to {char}
-"map  <Leader>f <Plug>(easymotion-bd-f)
-"nmap <Leader>f <Plug>(easymotion-overwin-f)
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+map <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
 "
-"" s{char}{char} to move to {char}{char}
-"nmap s <Plug>(easymotion-overwin-f2)
-"
-"" Move to line
-"map <Leader>L <Plug>(easymotion-bd-jk)
-"nmap <Leader>L <Plug>(easymotion-overwin-line)
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
 "
 "" Move to word
 "map  <Leader>w <Plug>(easymotion-bd-w)
 "nmap <Leader>w <Plug>(easymotion-overwin-w)
 "Plug 'easymotion/vim-easymotion'
-"Plug 'kien/rainbow_parentheses.vim'
-"
-"" Markdown
-"Plug 'suan/vim-instant-markdown'
-"
+Plug 'junegunn/rainbow_parentheses.vim'
+augroup rainbow_lisp
+  autocmd!
+  autocmd FileType lisp,clojure,scheme RainbowParentheses
+augroup END"
+
 "" Go 
 "Plug 'Blackrush/vim-gocode'
 "
 "" JavaScript 
+"Plug 'marijnh/tern_for_vim'
 "Plug 'jelera/vim-javascript-syntax'
 "Plug 'pangloss/vim-javascript'
 "Plug 'elzr/vim-json'
