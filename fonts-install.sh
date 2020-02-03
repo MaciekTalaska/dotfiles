@@ -1,25 +1,23 @@
 #! /usr/bin/env bash
 
 download_jetbrains_mono() {
-  #tag=$(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest | grep -oP '"tag_name": "\K(.*)(?=")')
-  tag=v1.0.2
-  echo "tag is: $tag"	
-  version="${tag:1}"	
-  echo "version is $version"
-	
-#  curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest \
-#  | grep "$1" \
-#  | cut -d : -f 2,3 \
-#  | tr -d \" \
-#  | wget --show-progress -qi -
-	# this is taken from: https://gist.github.com/steinwaywhw/a4cd19cda655b8249d908261a62687f8#gistcomment-2632806
-	#version=1.0.2
-  file=(JetBrainsMono-$version.zip)
-	unzip $file
-	mkdir -p ~/.local/share/fonts/jetbrainsmono
-	mv JetBrainsMono-$version/ttf/* ~/.local/share/fonts/jetbrainsmono
-	rm JetBrainsMono-$version.zip
-	rm JetBrainsMono-$version -rd
+  result=$(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest)
+#  result=$(cat gh.txt)
+  filename=$(echo "$result" | jq -r '.assets[0].name')
+  echo "filename is $filename" 
+  url=$(echo "$result" | jq -r '.assets[0].browser_download_url')
+  echo "url is $url"
+  name=${filename:0:${#filename}-4}
+  echo $name
+
+  wget --show-progress -q $url 
+  unzip $filename >> /dev/null
+  
+  destination=~/.local/share/fonts/jetbrainsmono
+  mkdir -p $destination 
+  mv $name/ttf/* $destination 
+  rm $filename 
+  rm $name -rd
 }
 
 # parameter is source file name
