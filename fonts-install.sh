@@ -2,13 +2,9 @@
 
 download_jetbrains_mono() {
   result=$(curl -s https://api.github.com/repos/JetBrains/JetBrainsMono/releases/latest)
-#  result=$(cat gh.txt)
   filename=$(echo "$result" | jq -r '.assets[0].name')
-  echo "filename is $filename" 
   url=$(echo "$result" | jq -r '.assets[0].browser_download_url')
-  echo "url is $url"
   name=${filename:0:${#filename}-4}
-  echo $name
 
   wget --show-progress -q $url 
   unzip $filename >> /dev/null
