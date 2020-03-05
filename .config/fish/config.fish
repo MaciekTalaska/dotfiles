@@ -8,8 +8,9 @@ set -Ux VISUAL $__editor
 source $HOME/.config/fish/functions/mt_prompt.fish
 
 function fish_prompt
-  # __mt_simple  
-  __mt_fish_prompt_whitebluepwd_greenblacklambda
+  # __mt_simple_prompt
+  __mt_simple  
+  # __mt_fish_prompt_whitebluepwd_greenblacklambda
 end
 
 source $HOME/.config/fish/functions/mt_tools.fish
@@ -24,5 +25,5 @@ source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 source ~/.asdf/asdf.fish
 
 # fnm
-set PATH /home/maciek/.fnm $PATH
+set PATH $HOME/.fnm $PATH
 fnm env --multi | source
