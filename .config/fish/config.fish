@@ -8,7 +8,6 @@ set -Ux VISUAL $__editor
 source $HOME/.config/fish/functions/mt_prompt.fish
 
 function fish_prompt
-#    ~/configuration/powerline-shell/powerline-shell.py $status --shell bare ^/dev/null --colorize-hostname --cwd-mode plain
   # __mt_simple  
   __mt_fish_prompt_whitebluepwd_greenblacklambda
 end
