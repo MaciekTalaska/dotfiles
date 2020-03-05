@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# the idea of this script is to mimic the bahvior of the '--reinstall-packages-from' from the nvm
+# the idea of this script is to mimic the behavior of the '--reinstall-packages-from' from the nvm
 #
 # what this script does is:
 # 1) switches to the version that has global packages installed (2nd script argument provided)
