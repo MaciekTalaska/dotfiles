@@ -12,6 +12,8 @@ files=('.bashrc'
         '.Xresources' 
         '.xxdiffrc'
         '.zprofile' 
+        '.profile',
+        '.nvimrc',
         '.zshrc')
 
 create_symlinks() {
