@@ -17,7 +17,7 @@ source $HOME/.config/fish/functions/mt_tools.fish
 mt_customize_abbreviations
 
 # opam configuration
-source /home/maciek/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # asdf
 source ~/.asdf/asdf.fish
