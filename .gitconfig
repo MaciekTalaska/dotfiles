@@ -70,6 +70,7 @@
 [core]
 	editor = vim 
 	autocrlf = input
+	askpass = /usr/bin/ksshaskpass
 
 [merge]
 	tool = meld
