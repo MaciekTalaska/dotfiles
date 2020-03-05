@@ -17,6 +17,8 @@ source $HOME/.config/fish/functions/mt_tools.fish
 mt_customize_abbreviations
 
 # opam configuration
+# if line below s commented out: type 'eval (opam env)'
+# this makes binaries located in ~/.opam/default/bin part of path
 source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # asdf
