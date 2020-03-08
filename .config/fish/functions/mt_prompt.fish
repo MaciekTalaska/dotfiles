@@ -1,8 +1,15 @@
 set -g fish_prompt_pwd_dir_length 4 
 
-set -g __mt_git_bg white 
+set -g __mt_git_bg brwhite 
 set -g __mt_git_fg normal 
 set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
+
+set -g __mt_prompt_char_right_arrow \ue0b0
+set -g __mt_prompt_char_lambda \u03bb
+set -g __mt_prompt_char_arrow \u22b3
+set -g __mt_prompt_ending $__mt_prompt_char_lambda
+
+#set -g __mt_prompt_multiline 0 
 
 function __mt_prompt_clear_git_radar_customizations
   set -e GIT_RADAR_FORMAT 
@@ -55,9 +62,6 @@ function __mt_prompt_customize_git_radar
   end
 end
 
-set -g __mt_prompt_char_right_arrow \ue0b0
-set -g __mt_prompt_char_lambda \u03bb
-
 function mt_prompt_multi
   set -xU __mt_prompt_multiline 1
 end
@@ -89,8 +93,8 @@ end
 function __mt_fish_prompt_whitebluepwd_greenblacklambda
     set -g __mt_prompt_pwd_fg white
     set -g __mt_prompt_pwd_bg blue
-    set -g __mt_prompt_git_fg brwhite
-    set -g __mt_prompt_git_bg brblack
+    set -g __mt_prompt_git_fg white 
+    set -g __mt_prompt_git_bg black 
     set -g __mt_prompt_lambda_fg green
 
     __mt_fish_prompt_generic_fatending
@@ -100,10 +104,10 @@ function __mt_fish_prompt_generic_fatending
   #__mt_prompt_customize_git_radar
 
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
-    echo -n (prompt_pwd)' '
+    echo -n (prompt_pwd)''
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
-    echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)''
+    echo -n ''(~/configuration/git-radar/git-radar --fish --fetch)' '
     
     if test -n "$__mt_prompt_multiline" 
       set_color $__mt_git_bg -b normal 
@@ -118,9 +122,9 @@ function __mt_fish_prompt_generic_fatending
       set_color normal
     else
       set_color $__mt_git_bg -b $__mt_prompt_git_bg 
-      echo -n $__mt_prompt_char_right_arrow
+      #echo -n $__mt_prompt_char_right_arrow
       set_color $__mt_prompt_lambda_fg -b $__mt_prompt_git_bg
-      echo -n ' '$__mt_prompt_char_lambda' '
+      echo -n ' '$__mt_prompt_ending' '
       set_color $__mt_prompt_git_bg -b normal
       echo -n $__mt_prompt_char_right_arrow' '
       set_color normal
@@ -180,10 +184,10 @@ function __mt_simple
   set -g __mt_prompt_git_color (set_color $__mt_git_fg -b $__mt_git_bg)
   #__mt_prompt_clear_git_radar_customizations
 
-  set_color $fish_color_cwd
+  set_color blue
   echo -n (prompt_pwd)
   set_color normal
   echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
-  set_color normal
+  set_color blue 
   echo '' $__mt_prompt_char_lambda ''
 end
