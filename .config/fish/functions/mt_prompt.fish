@@ -127,19 +127,9 @@ function __mt_fish_prompt_generic_fatending
       echo
       set_color $__mt_git_bg -b $__mt_prompt_git_bg 
       echo -n ' '
-#      set_color $__mt_prompt_lambda_fg -b $__mt_prompt_git_bg
-#      echo -n ' '$__mt_prompt_ending' '
-#      set_color $__mt_prompt_git_bg -b normal
-#      echo -n $__mt_prompt_char_right_arrow' '
-#      set_color normal
     else
       set_color $__mt_git_bg -b $__mt_prompt_git_bg 
       echo -n $__mt_prompt_char_right_arrow
-#      set_color $__mt_prompt_lambda_fg -b $__mt_prompt_git_bg
-#      echo -n ' '$__mt_prompt_ending' '
-#      set_color $__mt_prompt_git_bg -b normal
-#      echo -n $__mt_prompt_char_right_arrow' '
-#      set_color normal
     end
     set_color $__mt_prompt_lambda_fg -b $__mt_prompt_git_bg
     echo -n ' '$__mt_prompt_ending' '
