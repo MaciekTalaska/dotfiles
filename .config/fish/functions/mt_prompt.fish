@@ -94,7 +94,7 @@ end
 function __mt_fish_prompt_whitebluepwd_greenblacklambda
     set -g __mt_prompt_pwd_fg white
     set -g __mt_prompt_pwd_bg blue
-    set -g __mt_prompt_git_fg white 
+    set -g __mt_prompt_git_fg normal
     set -g __mt_prompt_git_bg black 
     set -g __mt_prompt_lambda_fg green
 
