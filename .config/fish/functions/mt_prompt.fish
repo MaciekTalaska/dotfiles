@@ -143,7 +143,7 @@ function __mt_fish_prompt_whitebluepwd_thinending
 end
 
 function __mt_fish_prompt_generic_thinending
-  #__mt_prompt_customize_git_radar
+  __mt_prompt_customize_git_radar
 
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
     echo -n (prompt_pwd)' '
