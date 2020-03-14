@@ -101,6 +101,16 @@ function __mt_fish_prompt_whitebluepwd_greenblacklambda
     __mt_fish_prompt_generic_fatending
 end
 
+function __mt_fish_prompt_solarized
+    set -g __mt_prompt_pwd_fg normal
+    set -g __mt_prompt_pwd_bg eee8d5
+    set -g __mt_prompt_git_fg normal
+    set -g __mt_prompt_git_bg eee8d5 
+    set -g __mt_prompt_lambda_fg green
+
+    __mt_fish_prompt_generic_fatending
+end
+
 function __mt_fish_prompt_generic_fatending
   __mt_prompt_customize_git_radar
 
