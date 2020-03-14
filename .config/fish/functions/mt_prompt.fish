@@ -102,13 +102,13 @@ function __mt_fish_prompt_whitebluepwd_greenblacklambda
 end
 
 function __mt_fish_prompt_generic_fatending
-  #__mt_prompt_customize_git_radar
+  __mt_prompt_customize_git_radar
 
     set_color $__mt_prompt_pwd_fg -b $__mt_prompt_pwd_bg
-    echo -n (prompt_pwd)''
+    echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
-    echo -n ''(~/configuration/git-radar/git-radar --fish --fetch)' '
+    echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)' '
     
     if test -n "$__mt_prompt_multiline" 
       set_color $__mt_git_bg -b normal 
