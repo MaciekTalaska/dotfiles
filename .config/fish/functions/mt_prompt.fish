@@ -39,7 +39,6 @@ end
 function __mt_prompt_customize_git_radar
   if not test -n "$GIT_RADAR_FORMAT"
 
-    #set -xU GIT_RADAR_FORMAT "%{branch: }%{local: }%{remote: }%{changes: }%{stash: }"
     set -xU GIT_RADAR_FORMAT "%{remote: }%{branch: }%{local: }%{changes: }%{stash: }"
 #    set -xU GIT_RADAR_COLOR_BRANCH $__mt_prompt_git_color  
 #    set -xU GIT_RADAR_COLOR_LOCAL_BEHIND $__mt_prompt_git_color  
@@ -56,7 +55,7 @@ function __mt_prompt_customize_git_radar
 #    set -xU GIT_RADAR_MASTER_SYMBOL $__mt_prompt_git_color
 #
 #    set -xU GIT_RADAR_COLOR_LOCAL_RESET $__mt_prompt_git_color 
-    set -xU GIT_RADAR_COLOR_REMOTE_RESET $__mt_prompt_git_color 
+#    set -xU GIT_RADAR_COLOR_REMOTE_RESET $__mt_prompt_git_color 
 #    set -xU GIT_RADAR_COLOR_CHANGES_RESET $__mt_prompt_git_color 
 #    set -xU GIT_RADAR_COLOR_BRANCH_RESET $__mt_prompt_git_color 
 #    set -xU GIT_RADAR_COLOR_STASH $__mt_prompt_git_color 
