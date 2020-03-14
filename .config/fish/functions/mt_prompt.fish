@@ -190,6 +190,5 @@ function __mt_simple
   set_color normal
   echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
   set_color blue 
-  #echo '' $__mt_prompt_char_lambda ''
-  echo '' $__mt_prompt_char_arrow2 ''
+  echo $__mt_prompt_char_lambda
 end
