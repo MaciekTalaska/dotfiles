@@ -20,7 +20,7 @@ install_packages() {
     exit 3 
   fi
 
-  echo "installing packages via npm..." >&2 
+  echo "installing packages via npm for " $1 "..." >&2 
   # by default npm is just too chatty...
   npm install -g --silent $2
   echo "done." >&2
