@@ -45,15 +45,15 @@ retrieve_packages_names() {
 }
 
 print_usage() {
-  echo "Reinstall Node Packages From script"
+  echo "fnm_reinstall: installs NodeJS packages from one installed version to another"
   echo ""
   echo "Usage:"
   echo "  fnm_reinstall <new version> <old version>"
   echo ""
   echo "Example of usage: "
-  echo "  fnm_reinstall 12.10.0 10.16.3"
+  echo "  fnm_reinstall v12.10.0 v10.16.3"
   echo ""
-  echo "  (this installs all global packages from 10.16.3 to 12.10.0)"
+  echo "  (this installs all global packages from v10.16.3 to v12.10.0)"
 }
 
 check_for_arguments() {
