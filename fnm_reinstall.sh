@@ -48,10 +48,10 @@ print_usage() {
   echo "Reinstall Node Packages From script"
   echo ""
   echo "Usage:"
-  echo "  node_package_reinstall <new version> <old version>"
+  echo "  fnm_reinstall <new version> <old version>"
   echo ""
   echo "Example of usage: "
-  echo "  node_package_reinstall 12.10.0 10.16.3"
+  echo "  fnm_reinstall 12.10.0 10.16.3"
   echo ""
   echo "  (this installs all global packages from 10.16.3 to 12.10.0)"
 }
