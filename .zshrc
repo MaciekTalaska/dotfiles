@@ -1,3 +1,5 @@
+export SHELL=/usr/bin/zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 setopt prompt_subst
@@ -25,3 +27,8 @@ abbrev-alias -g gbl="git branch --list"
 abbrev-alias -g gsl="git stash list"
 abbrev-alias -g gdc="git diff --cached"
 
+export PATH=$HOME/.fnm:$PATH
+export PATH=$HOME/.asdf/shims:$PATH
+export PATH=$HOME/.asdf/bin:$PATH
+
+source /home/emgieha/.asdf/asdf.sh
