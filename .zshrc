@@ -11,6 +11,9 @@ export PROMPT="%F{green}%2~%F{normal} \$(git-radar --zsh --no-space)> "
 # antibody bundle < .zsh_plugins > .zsh_plugins.sh
 source ~/.zsh_plugins.sh
 
+# do not push command to history if started with space
+setopt histignorespace
+
 abbrev-alias -g la="ls -laXh" 
 abbrev-alias -g g="git"
 abbrev-alias -g ga="git add"
