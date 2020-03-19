@@ -14,7 +14,8 @@ files=('.bashrc'
         '.zprofile' 
         '.profile',
         '.nvimrc',
-        '.zshrc')
+        '.zshrc'
+        '.zsh_plugins.sh')
 
 create_symlinks() {
     for file in "${files[@]}"
