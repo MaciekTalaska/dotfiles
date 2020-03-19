@@ -14,7 +14,7 @@ source ~/.zsh_plugins.sh
 # do not push command to history if started with space
 setopt histignorespace
 
-abbrev-alias -g la="ls -laXh" 
+abbrev-alias -g la="ls -lAXh" 
 abbrev-alias -g g="git"
 abbrev-alias -g ga="git add"
 abbrev-alias -g gp="git push"
