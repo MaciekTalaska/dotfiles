@@ -55,6 +55,10 @@
 	le = log --oneline --decorate
 	lnice = log --graph --decorate --pretty=oneline --abbrev-commit
 	lf = log -u
+	# https://www.atlassian.com/blog/git/advanced-git-aliases
+	lall = "!f() { \
+		git log --graph --decorate $(git rev-list -g --all); \
+		}; f"
 
 	r = reset
 	r = reset
