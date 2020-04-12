@@ -1,0 +1,60 @@
+{
+    "editor.fontSize": 15,
+    "editor.fontFamily": "DejaVu Sans Mono",
+    "editor.cursorStyle": "block",
+    "editor.fontLigatures": true,
+    "editor.folding": false,
+    "editor.minimap.enabled": false,
+    "editor.minimap.renderCharacters": false,
+    "workbench.colorTheme": "Braver's Solarized Light (themed workbench)",
+    "workbench.colorCustomizations": {
+        "editorCursor.foreground": "#ff0000"
+    },
+    "vim.cursorStylePerMode.insert": "line",
+    // RUST configuration
+    "rust.target_dir": "rlstarget/rls",
+    "rust.build_on_save": false,
+    "rust.show_warnings": true,
+    "rust.unstable_features": true,
+    "rust.build_bin": "some_binary",
+    "rust.all_targets": false,
+    // eslint
+    "eslint.alwaysShowStatus": true,
+    "editor.formatOnSave": true,
+    "[javascript, typescript, vue]": {
+        "editor.formatOnSave": true
+    },
+    "[typescript]": {
+        "editor.formatOnSave": true
+    },
+    "eslint.format.enable": true,
+    "eslint.validate": [
+        "vue",
+        "html",
+        "javascript",
+        "svelte",
+        "typescript",
+        "javascriptreact",
+        "typescriptreact"
+    ],
+    // "eslint.autoFixOnSave": true, 
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "vetur.validation.template": true,
+    "vetur.format.defaultFormatter.js": "vscode-typescript",
+    "vetur.format.defaultFormatter.html": "js-beautify-html",
+    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}
