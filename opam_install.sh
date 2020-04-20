@@ -2,6 +2,7 @@
 
 OPAM_DIRECTORY=$HOME/mybin
 OPAM_ROOT=$HOME/.opam
+OPAM_EXEC=opam
 platform="-x86_64-linux"
 
 create_opam_directory() {
@@ -46,7 +47,46 @@ run_opam_init() {
     fi
 }
 
-create_opam_directory
-get_latest_version_of_opam
-add_opam_directory_to_path
-run_opam_init
+install_opam() {
+    create_opam_directory
+    get_latest_version_of_opam
+    add_opam_directory_to_path
+    run_opam_init
+}
+
+get_opam_version() {
+    echo "$($OPAM_EXEC --version)"
+}
+
+backup_opam() {
+    # if backup file already exists remove it
+    if [ -f "$OPAM_DIRECTORY/opam.baq" ]; then
+        rm $OPAM_DIRECTORY/opam.baq
+    fi
+    mv $OPAM_DIRECTORY/opam $OPAM_DIRECTORY/opam.baq
+}
+
+
+bash _utils.sh require_exec "jq"
+
+if bash _utils.sh file_in_path "$OPAM_EXEC"; then
+    # "$OPAM_EXEC exists"
+    # 1. get version of opam currently installed
+    local_version=$(get_opam_version)
+    # 2. get latest version from repository
+    result=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
+    repo_version=$(bash _utils.sh get_latest_version_from_repo "$result")
+    # 3. install new version only if repo version is newer than local version
+    if [ ! "$local_version" = "$repo_version" ]; then
+        # 1. backup old version
+        backup_opam
+        # 2. install new version
+        install_opam
+    else
+        echo "local version is up to date. nothing to do..."
+    fi
+else
+    # no $OPAM_EXEC in path, so install it
+    install_opam
+fi
+
