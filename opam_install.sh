@@ -33,7 +33,7 @@ get_latest_version_of_opam() {
 
 add_opam_directory_to_path() {
     # add opam directory to path, if it is not part of it 
-    if [[ ":$PATH:" == *":$HOME/bin:"* ]]; then
+    if [[ ":$PATH:" != *":$OPAM_DIRECTORY:"* ]]; then
         echo "opam directory is not in path, adding..."
         echo "# path to directory with additional binaries" >> $HOME/.profile
         echo "PATH=$OPAM_DIRECTORY:\$PATH" >> $HOME/.profile
