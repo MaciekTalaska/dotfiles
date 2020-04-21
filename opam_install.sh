@@ -25,9 +25,9 @@ get_latest_version_of_opam() {
     grep -v ".asc" |
     cut -d : -f 2,3 |
     tr -d \" |
-    wget -qi - --show-progress --output-document=opam
+    wget -qi - --show-progress --output-document=$OPAM_EXEC
 
-    chmod +x opam
+    chmod +x $OPAM_EXEC
     cd -
 }
 
@@ -43,7 +43,7 @@ add_opam_directory_to_path() {
 run_opam_init() {
     # this function should run only if $OPAM_ROOT does NOT exist!
     if [ ! -d $OPAM_ROOT ]; then
-        $OPAM_DIRECTORY/opam init --yes --root $OPAM_ROOT
+        $OPAM_DIRECTORY/$OPAM_EXEC init --yes --root $OPAM_ROOT
     fi
 }
 
@@ -60,10 +60,10 @@ get_opam_version() {
 
 backup_opam() {
     # if backup file already exists remove it
-    if [ -f "$OPAM_DIRECTORY/opam.baq" ]; then
-        rm $OPAM_DIRECTORY/opam.baq
+    if [ -f "$OPAM_DIRECTORY/$OPAM_EXEC.baq" ]; then
+        rm $OPAM_DIRECTORY/$OPAM_EXEC.baq
     fi
-    mv $OPAM_DIRECTORY/opam $OPAM_DIRECTORY/opam.baq
+    mv $OPAM_DIRECTORY/$OPAM_EXEC $OPAM_DIRECTORY/$OPAM_EXEC.baq
 }
 
 
