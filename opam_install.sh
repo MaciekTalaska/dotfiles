@@ -71,23 +71,17 @@ install_or_update_opam() {
     bash _utils.sh require_exec "jq"
 
     if bash _utils.sh file_in_path "$OPAM_EXEC"; then
-        # "$OPAM_EXEC exists"
-        # 1. get version of opam currently installed
         local_version=$(get_opam_version)
-        # 2. get latest version from repository
         result=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
         repo_version=$(bash _utils.sh get_latest_version_from_repo "$result")
         # 3. install new version only if repo version is newer than local version
         if [ ! "$local_version" = "$repo_version" ]; then
-            # 1. backup old version
             backup_opam
-            # 2. install new version
             install_opam
         else
             echo "local version is up to date. nothing to do..."
         fi
     else
-        # no $OPAM_EXEC in path, so install it
         install_opam
     fi
 }
