@@ -13,20 +13,22 @@ create_opam_directory() {
     fi
 }
 
+# this function takes 1 argument - info on latest version available
+# this data is in JSON format
 get_latest_version_of_opam() {
     cd $OPAM_DIRECTORY
 
     echo "downloading latest version of opam..."
-
-    curl -s https://api.github.com/repos/ocaml/opam/releases/latest |
+    
+    echo "$1" |
     grep "browser_download_url" |
     grep "opam" |
-    grep -- "-x86_64-linux" |
+    # grep -- "-x86_64-linux" |
+    grep -- "$platform" |
     grep -v ".asc" |
     cut -d : -f 2,3 |
     tr -d \" |
     wget -qi - --show-progress --output-document=$OPAM_EXEC
-
     chmod +x $OPAM_EXEC
     cd -
 }
@@ -49,7 +51,7 @@ run_opam_init() {
 
 install_opam() {
     create_opam_directory
-    get_latest_version_of_opam
+    get_latest_version_of_opam "$1"
     add_opam_directory_to_path
     run_opam_init
 }
@@ -70,19 +72,26 @@ backup_opam() {
 install_or_update_opam() {
     bash _utils.sh require_exec "jq"
 
+    #release_info=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
+    release_info=$(cat opam_info.txt)
+     #echo $release_info
+     #exit 1;
     if bash _utils.sh file_in_path "$OPAM_EXEC"; then
         local_version=$(get_opam_version)
-        result=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
-        repo_version=$(bash _utils.sh get_latest_version_from_repo "$result")
-        # 3. install new version only if repo version is newer than local version
+        # release_info=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
+        repo_version=$(bash _utils.sh get_latest_version_from_repo "$release_info")
+        echo "local version: $local_version"
+        echo "repo  version: $repo_version"
+        # install new version only if repo version is newer than local version
         if [ ! "$local_version" = "$repo_version" ]; then
             backup_opam
-            install_opam
+            install_opam "$release_info"
         else
             echo "local version is up to date. nothing to do..."
         fi
     else
-        install_opam
+        # release_info=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
+        install_opam "$release_info"
     fi
 }
 
