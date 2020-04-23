@@ -15,12 +15,12 @@ create_opam_directory() {
 
 # this function takes 1 argument - info on latest version available
 # this data is in JSON format
-get_latest_version_of_opam() {
+get_latest_opam_from_github() {
     echo "downloading latest version of opam..."
     
     echo "$1" |
     grep "browser_download_url" |
-    grep "opam" |
+    grep "$OPAM_EXEC" |
     grep -- "$platform" |
     grep -v ".asc" |
     cut -d : -f 2,3 |
@@ -47,7 +47,7 @@ run_opam_init() {
 install_opam() {
     create_opam_directory
     cd $OPAM_DIRECTORY
-    get_latest_version_of_opam "$1"
+    get_latest_opam_from_github "$1"
     chmod +x $OPAM_EXEC
     cd -
     add_opam_directory_to_path
@@ -77,6 +77,7 @@ install_or_update_opam() {
         # install new version only if repo version is newer than local version
         if [ ! "$local_version" = "$repo_version" ]; then
             backup_opam
+            echo "upgrading: $local_version -> $repo_version"
             install_opam "$release_info"
         else
             echo "local version is up to date. nothing to do..."
