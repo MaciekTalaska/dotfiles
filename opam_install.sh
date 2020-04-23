@@ -16,8 +16,6 @@ create_opam_directory() {
 # this function takes 1 argument - info on latest version available
 # this data is in JSON format
 get_latest_version_of_opam() {
-    cd $OPAM_DIRECTORY
-
     echo "downloading latest version of opam..."
     
     echo "$1" |
@@ -28,8 +26,6 @@ get_latest_version_of_opam() {
     cut -d : -f 2,3 |
     tr -d \" |
     wget -qi - --show-progress --output-document=$OPAM_EXEC
-    chmod +x $OPAM_EXEC
-    cd -
 }
 
 add_opam_directory_to_path() {
@@ -50,7 +46,10 @@ run_opam_init() {
 
 install_opam() {
     create_opam_directory
+    cd $OPAM_DIRECTORY
     get_latest_version_of_opam "$1"
+    chmod +x $OPAM_EXEC
+    cd -
     add_opam_directory_to_path
     run_opam_init
 }
