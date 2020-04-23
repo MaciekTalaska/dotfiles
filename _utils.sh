@@ -6,7 +6,7 @@
 # argument: executable name
 require_exec() {
   if ! bash _utils.sh file_in_path "$1"; then
-    echo "$1 does not exist and is required. aborting script..."
+    echo "error: $1 is required. aborting script..."
     exit 1;
   fi
 }

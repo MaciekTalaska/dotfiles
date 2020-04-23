@@ -18,6 +18,20 @@ create_opam_directory() {
 get_latest_opam_from_github() {
     echo "downloading latest version of opam..."
     
+    match="http.*$platform$"
+    url=$(echo "$1" | jq -r --arg m "$match" '.assets[].browser_download_url | match($m)| .string')
+    wget $url -q - --show-progress --output-document=$OPAM_EXEC 
+
+    # echo "$1" | 
+    #     jq -r --arg m "$match" '.assets[].browser_download_url | match($m)| .string' | 
+    #     wget -qi - --show-progress --output-document=$OPAM_EXEC 
+}
+
+# this function takes 1 argument - info on latest version available
+# this data is in JSON format
+get_latest_opam_from_github_() {
+    echo "downloading latest version of opam..."
+    
     echo "$1" |
     grep "browser_download_url" |
     grep "$OPAM_EXEC" |
@@ -46,10 +60,10 @@ run_opam_init() {
 
 install_opam() {
     create_opam_directory
-    cd $OPAM_DIRECTORY
+    cd $OPAM_DIRECTORY > /dev/null
     get_latest_opam_from_github "$1"
     chmod +x $OPAM_EXEC
-    cd -
+    cd - > /dev/null
     add_opam_directory_to_path
     run_opam_init
 }
@@ -69,6 +83,8 @@ backup_opam() {
 
 install_or_update_opam() {
     bash _utils.sh require_exec "jq"
+    bash _utils.sh require_exec "wget"
+    bash _utils.sh require_exec "curl"
 
     release_info=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
     if bash _utils.sh file_in_path "$OPAM_EXEC"; then
