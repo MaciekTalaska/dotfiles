@@ -2,6 +2,20 @@
 
 HASKELL_DIR=/usr/local/bin
 
+print_help() {
+    echo "haskell_setup - installing haskell toolset using 'stack'*"
+    echo ""
+    echo "Usage: "
+    echo "  haskell_setup <install|uninstall>"
+    echo ""
+    echo "Examples:"
+    echo "haskell_setup install"
+    echo "  installs stack & haskell toolset*"
+    echo "haskell_setup uninstall - removes stack & haskell toolset*"
+    echo ""
+    echo "haskell_toolset: ghc ghci ghc-pkg haddock runghc runhaskell "
+}
+
 create_executables() {
     for var in "$@"
     do
@@ -29,8 +43,9 @@ remove_single_file() {
     sudo rm $HASKELL_DIR/$1
 }
 
-if [ "$1" = "uninstall" ] ; then
-    remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell
-else
-    create_executables ghc ghci ghc-pkg haddock runghc runhaskell
-fi
+case "$1" in 
+    "install"  )  create_executables ghc ghci ghc-pkg haddock runghc runhaskell  ;;
+    "uninstall" ) remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell ;;
+    * ) print_help ;;
+esac
+
