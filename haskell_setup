@@ -1,6 +1,6 @@
 #! /usr/bin/env bash
 
-local_bin=/usr/local/bin
+HASKELL_DIR=/usr/local/bin
 
 create_executables() {
     for var in "$@"
@@ -11,10 +11,10 @@ create_executables() {
 
 create_simple_executable() {
 # this is inspired by part of asdf-haskell: https://github.com/vic/asdf-haskell
-    echo "creating $local_bin/$1..."
-    echo "#!/usr/bin/env bash" | sudo tee --append $local_bin/$1 > /dev/null
-    echo "exec $local_bin/stack exec $1 -- \$*" | sudo tee --append $local_bin/$1  > /dev/null
-    sudo chmod +x $local_bin/$1
+    echo "creating $HASKELL_DIR/$1..."
+    echo "#!/usr/bin/env bash" | sudo tee --append $HASKELL_DIR/$1 > /dev/null
+    echo "exec $HASKELL_DIR/stack exec $1 -- \$*" | sudo tee --append $HASKELL_DIR/$1  > /dev/null
+    sudo chmod +x $HASKELL_DIR/$1
 }
 
 remove_haskell_links() {
@@ -25,8 +25,8 @@ remove_haskell_links() {
 }
 
 remove_single_file() {
-    echo "removing $local_bin/$1..."
-    sudo rm $local_bin/$1
+    echo "removing $HASKELL_DIR/$1..."
+    sudo rm $HASKELL_DIR/$1
 }
 
 if [ "$1" = "uninstall" ] ; then
