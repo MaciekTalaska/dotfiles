@@ -1,6 +1,7 @@
 #! /usr/bin/env bash
 
-codename=$(sudo cat /etc/lsb-release|grep DISTRIB_CODENAME | sed s/DISTRIB_CODENAME=//)
+#codename=$(sudo cat /etc/lsb-release|grep DISTRIB_CODENAME | sed s/DISTRIB_CODENAME=//)
+codename=$(lsb_release -cs)
 
 echo "deb https://packages.erlang-solutions.com/ubuntu $codename contrib" | sudo tee /etc/apt/sources.list.d/erlang.list > /dev/null
 sudo apt install gnupg-curl
