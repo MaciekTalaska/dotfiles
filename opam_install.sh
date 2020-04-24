@@ -82,9 +82,10 @@ backup_opam() {
 
 
 install_or_update_opam() {
-    bash _utils.sh require_exec "jq"
-    bash _utils.sh require_exec "wget"
-    bash _utils.sh require_exec "curl"
+    source _utils.sh
+    require_exec "jq"
+    require_exec "wget"
+    require_exec "curl"
 
     release_info=$(curl -s https://api.github.com/repos/ocaml/opam/releases/latest)
     if bash _utils.sh file_in_path "$OPAM_EXEC"; then
