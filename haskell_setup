@@ -1,6 +1,9 @@
 #! /usr/bin/env bash
 
-HASKELL_DIR=/usr/local/bin
+HASKELL_DIR=$HOME/mybin
+GITHUB_REPO=https://api.github.com/repos/commercialhaskell/stack/releases/latest
+platform=x86_64-static.tar.gz
+STACK_EXEC=stack
 
 print_help() {
     echo "haskell_setup - installing haskell toolset using 'stack'*"
@@ -43,9 +46,35 @@ remove_single_file() {
     sudo rm $HASKELL_DIR/$1
 }
 
+implode() {
+    #echo "this COMPLETELY removes .stack & haskell toolset"
+    # 1. remove scripts calling stack with params
+    remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell
+    # 2. remove .stack
+    # todo
+}
+
+
+get_stack() {
+    local output="stack-"$platform
+    match="http.*$platform$"
+
+    release_info=$(curl -s $GITHUB_REPO)
+    url=$(echo "$release_info" | jq -r --arg m "$match" '.assets[].browser_download_url | match($m)| .string')
+    wget $url -q - --show-progress --output-document=$output
+    tar -xf $output --strip 1 --wildcards --no-anchored $STACK_EXEC
+    rm $output
+    mv $STACK_EXEC $HASKELL_DIR/$STACK_EXEC 
+}
+
+install() {
+    get_stack
+    create_executables ghc ghci ghc-pkg haddock runghc runhaskell 
+}
+
 case "$1" in 
-    "install"  )  create_executables ghc ghci ghc-pkg haddock runghc runhaskell  ;;
-    "uninstall" ) remove_haskell_links ghc ghci ghc-pkg haddock runghc runhaskell ;;
+    "install" ) install ;;
+    "uninstall" ) implode ;;
     * ) print_help ;;
 esac
 
