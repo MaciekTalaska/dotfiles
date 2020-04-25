@@ -48,6 +48,12 @@ install_powerline_fonts() {
   rm powerline-fonts -rf
 }
 
+source _utils.sh
+require_exec "jq"
+require_exec "git"
+require_exec "wget"
+require_exec "curl"
+
 pushd . >> /dev/null
 mkdir -p ~/config
 cd ~/config
