@@ -10,9 +10,9 @@ download_font() {
 }
 
 download_all_fonts() {
-  # this is assoctiative array in bash
-  # key is the name of the file font will be stored in
-  # and the value is the download link
+  # this is assoctiative array in bash (key, value)
+  # - key: name of the file to save font into
+  # - value: download link
   declare -A fonts
   fonts[dejavusansmono_nerd_font_complete.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Regular/complete/DejaVu%20Sans%20Mono%20Nerd%20Font%20Complete%20Mono.ttf?raw=true"
   fonts[dejavusansmono_nerd_font_complete_italic.ttf]="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/DejaVuSansMono/Italic/complete/DejaVu%20Sans%20Mono%20Oblique%20Nerd%20Font%20Complete%20Complete.ttf"
@@ -57,11 +57,23 @@ install() {
   bash _utils.sh clean_font_cache
 }
 
+print_help() {
+  echo "nerdfonts-install - installing nerdfonts from repository"
+  echo ""
+  echo "Usage:"
+  echo "  nerdfonts-install <install|uninstall>"
+  echo ""
+  echo "Examples:"
+  echo "nerdfonts-install install"
+  echo "  installs nerdfonts"
+  echo ""
+  echo "nerdfonts-install uninstall"
+  echo "  uninstalls nerdfonts"
+}
 
-
-if [ "$1" = "uninstall" ] ; then
-    uninstall 
-else
-    install 
-fi
+case "$1" in
+  "install" ) install ;;
+  "uninstall" ) uninstall ;;
+  * ) print_help ;;
+esac
 
