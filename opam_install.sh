@@ -43,12 +43,13 @@ get_latest_opam_from_github_() {
 }
 
 add_opam_directory_to_path() {
-    # add opam directory to path, if it is not part of it 
-    if [[ ":$PATH:" != *":$OPAM_DIRECTORY:"* ]]; then
-        echo "opam directory is not in path, adding..."
-        echo "# path to directory with additional binaries" >> $HOME/.profile
-        echo "PATH=$OPAM_DIRECTORY:\$PATH" >> $HOME/.profile
-    fi
+    echo "opam directory is not in path, adding..."
+    create_directory_and_add_to_path $OPAM_DIRECTORY 
+
+#    if [[ ":$PATH:" != *":$OPAM_DIRECTORY:"* ]]; then
+#        echo "# path to directory with additional binaries" >> $HOME/.profile
+#        echo "PATH=$OPAM_DIRECTORY:\$PATH" >> $HOME/.profile
+#    fi
 }
 
 run_opam_init() {
