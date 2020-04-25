@@ -118,7 +118,7 @@ function __mt_fish_prompt_generic_fatending
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
     set_color normal -b normal
-    echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
+    echo -n ' '(git-radar --fish --fetch)
     
     if test -n "$__mt_prompt_multiline" 
       set_color $__mt_git_bg -b normal 
@@ -154,7 +154,7 @@ function __mt_fish_prompt_generic_thinending
     echo -n (prompt_pwd)' '
     set_color $__mt_prompt_pwd_bg -b $__mt_git_bg 
     echo -n $__mt_prompt_char_right_arrow
-    echo -n (~/configuration/git-radar/git-radar --fish --fetch --no-space)' '
+    echo -n (git-radar --fish --fetch --no-space)' '
     if test -n "$__mt_prompt_multiline" 
       echo
     end
@@ -176,7 +176,7 @@ function __mt_simple_prompt
   set_color $fish_color_cwd
   echo -n (prompt_pwd)
   set_color normal
-  echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
+  echo -n ' '(git-radar --fish --fetch)
   if test -n "$__mt_prompt_multiline" 
     echo
   end
@@ -193,7 +193,7 @@ function __mt_simple
   set_color blue
   echo -n (prompt_pwd)
   set_color normal
-  echo -n ' '(~/configuration/git-radar/git-radar --fish --fetch)
+  echo -n ' '(git-radar --fish --fetch)
   set_color blue 
   echo $__mt_prompt_char_lambda
 end
