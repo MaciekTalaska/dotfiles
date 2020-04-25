@@ -39,9 +39,12 @@ get_latest_version_from_repo() {
 # arguments:
 # $1 - directory to be created and added to $PATH
 create_directory_and_add_to_path() {
+    mkdir -p $1
+    local config_file=$HOME/.profile
     if [[ ":$PATH:" != *":$1:"* ]]; then
-        echo "# path to directory with additional binaries" >> $HOME/.profile
-        echo "PATH=$1:\$PATH" >> $HOME/.profile
+        echo "" >> $config_file
+        echo "# path to directory with additional binaries" >> $config_file
+        echo "PATH=$1:\$PATH" >> $config_file
     fi
     echo "PATH has been modified. logout & login for the changes to take effect."
 }
