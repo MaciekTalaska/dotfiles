@@ -1,0 +1,6 @@
+clear Lock
+keycode 66 = Caps_Lock
+
+keycode 105 = Menu
+keycode 133 = F13
+
