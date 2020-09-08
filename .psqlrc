@@ -1,0 +1,5 @@
+\pset linestyle unicode
+\pset border 2
+\set x '\\setenv PAGER less'
+\set xx '\\setenv PAGER \'pspg -bX --no-mouse\''
+
