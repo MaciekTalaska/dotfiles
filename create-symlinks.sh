@@ -14,6 +14,7 @@ files=('.bashrc'
         '.zprofile' 
         '.profile',
         '.nvimrc',
+        '.psqlrc',
         '.zshrc'
         '.zsh_plugins.sh')
 
